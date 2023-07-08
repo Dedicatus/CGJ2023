@@ -7,9 +7,26 @@ public class NpcController : MonoBehaviour
 {
     public float moveToFlagSpeed;
     private FlagController targetFlag;
-    void Start()
+    private GameManager gameManager;
+    private HpController hpController;
+
+    private void OnEnable() 
     {
+        hpController = GetComponent<HpController>();
+        hpController.OnDie += OnDie;
         FlagController.OnSetFlag += OnSetFlag;
+    }
+
+    private void OnDisable() 
+    {
+        FlagController.OnSetFlag -= OnSetFlag;
+        hpController.OnDie -= OnDie;
+    }
+
+    private void Start()
+    {
+        gameManager = GameManager.Instance;
+        gameManager.RegisterNPC(gameObject);
     }
 
     private void OnSetFlag(FlagController flagCtrl)
@@ -30,7 +47,7 @@ public class NpcController : MonoBehaviour
         //}
     }
 
-    void Update()
+    private void Update()
     {
         MoveToFlagFormationRange();
     }
@@ -46,5 +63,10 @@ public class NpcController : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, targetFlag.transform.position, moveToFlagSpeed * Time.deltaTime);
         }
+    }
+
+    private void OnDie()
+    {
+        gameManager.UnregisterNPC(gameObject);
     }
 }
