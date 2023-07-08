@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fakeflagPrefab: {fileID: 3651969375025650128, guid: 0114f98da430e401eac6d56a3af8a622, type: 3}
   flagPrefab: {fileID: 3651969375025650128, guid: d529b3081e9a248a1b87b0296b93be0c, type: 3}
-  maxCD: 5
+  maxCD: 4
   radius: 17
   flagImage: {fileID: 5698221023913020305}
   coverImage: {fileID: 4592991160137014623}

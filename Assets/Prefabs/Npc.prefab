@@ -851,7 +851,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 5
+      Data: 6
     - Name: 
       Entry: 7
       Data: 
@@ -860,7 +860,7 @@ MonoBehaviour:
       Data: 90
     - Name: $v
       Entry: 4
-      Data: 1.5
+      Data: 1.2
     - Name: 
       Entry: 8
       Data: 
@@ -872,7 +872,7 @@ MonoBehaviour:
       Data: 135
     - Name: $v
       Entry: 4
-      Data: 1.8
+      Data: 1.5
     - Name: 
       Entry: 8
       Data: 
@@ -884,7 +884,7 @@ MonoBehaviour:
       Data: 45
     - Name: $v
       Entry: 4
-      Data: 1.3
+      Data: 0.9
     - Name: 
       Entry: 8
       Data: 
@@ -896,7 +896,7 @@ MonoBehaviour:
       Data: 180
     - Name: $v
       Entry: 4
-      Data: 2
+      Data: 1.8
     - Name: 
       Entry: 8
       Data: 
@@ -906,6 +906,18 @@ MonoBehaviour:
     - Name: $k
       Entry: 3
       Data: 225
+    - Name: $v
+      Entry: 4
+      Data: 2.4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 270
     - Name: $v
       Entry: 4
       Data: 3
@@ -940,7 +952,7 @@ MonoBehaviour:
       Data: 
   uncomfortableRadius: 3
   lonelinessRadius: 10
-  valueChangeSpeed: 1
+  valueChangeSpeed: 0.6
   lonelyDecrease: 0.005
   uncomfortableIncrease: 0.005
   comfortableDecrease: 0.005
