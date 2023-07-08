@@ -223,5 +223,6 @@ MonoBehaviour:
     SerializationNodes: []
   image: {fileID: 7015222388239377435}
   scale: 0.1
-  offsetY: 4
+  offsetY: 2.16
+  offsetX: 2.38
   character: {fileID: 0}

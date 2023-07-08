@@ -10,27 +10,22 @@ public class EmojiDisplay : SerializedMonoBehaviour
 
     public float scale = 0.1f;
     public float offsetY = 4;
-    
+    public float offsetX = 4;
     public Transform character;
 
-    public void Update()
+    private void Update()
     {
-        transform.position = character.position;
+        SetPosition();
     }
 
-    private void LateUpdate()
+    public void SetPosition()
     {
-        var mainCamera = Camera.main;
-        if (mainCamera == null)
-        {
-            return;
-        }
-
-        transform.position = character.position + Vector3.up * offsetY;
-        transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.forward,
-            mainCamera.transform.rotation * Vector3.up);
+        transform.rotation = character.rotation;
+        transform.position = character.position + character.up * offsetY;
+        transform.position += character.right * offsetX;
         transform.localScale = new Vector3(scale, scale, scale);
     }
+
 
     public void SetSprite(Sprite sprite)
     {
