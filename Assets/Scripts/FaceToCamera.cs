@@ -12,8 +12,7 @@ public class FaceToCamera : MonoBehaviour
             return;
         }
 
-        transform.position = transform.position + Vector3.up;
-        transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.forward,
-            mainCamera.transform.rotation * Vector3.up);
+        transform.right = mainCamera.ScreenToWorldPoint(Vector3.left);
+        transform.up = mainCamera.ScreenToWorldPoint(Vector3.up);
     }
 }
