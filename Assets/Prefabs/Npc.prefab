@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da30283adfa79a7408ff13158b835c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requirement: 5
+  requirement: 3
   meshRenderers:
   - {fileID: 7285465261903153122}
   curRequirement: 
@@ -284,7 +284,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 98542d75d16265241a2e71a98650cc6a, type: 2}
+  - {fileID: 2100000, guid: eb9c147c81381044b87fb54cccc6bd31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -491,6 +491,7 @@ MonoBehaviour:
       Data: 
   uncomfortableRadius: 5
   lonelinessRadius: 15
+  valueChangeSpeed: 1
   lonelyDecrease: 0.1
   uncomfortableDecrease: 0.1
   comfortableIncrease: 0.1
