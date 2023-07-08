@@ -20,7 +20,7 @@ public enum Requirement
     Yellow,
     Green,
     Purple,
-    Orange,
+    // Orange,
 }
 [Serializable]
 public class RequirementSprite
