@@ -24,6 +24,8 @@ public class FlagController : MonoBehaviour
     private SpriteRenderer flagRender;
     [SerializeField]
     private GameObject rangeIndicator;
+    [SerializeField]
+    private Renderer slider;
 
     private void OnEnable()
     {
@@ -74,6 +76,7 @@ public class FlagController : MonoBehaviour
     void Update()
     {
         currentTime -= Time.deltaTime;
+        slider.material.SetFloat("_SliderAmount", currentTime / keepTime);
         if (currentTime <= 0)
         {
             Destroy(gameObject);
