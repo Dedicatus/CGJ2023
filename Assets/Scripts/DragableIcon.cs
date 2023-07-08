@@ -59,6 +59,10 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 // The raycast will only hit objects in the Ground layer
                 myFakeFlag.transform.position = hit.point;
             }
+            else
+            {
+                myFakeFlag.transform.position = Input.mousePosition;
+            }
         }
     }
 
