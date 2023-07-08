@@ -4,15 +4,43 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private GameManager gameManager;
+
+    private MainMenuUI mainMenuUI;
+
+    private void OnEnable() 
     {
-        
+        gameManager = GameManager.Instance;
+        gameManager.OnPregameEnter += OnPregameEnter;
+        gameManager.OnGameStart += OnGameStart;
+        gameManager.OnGamePause += OnGamePause;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start() 
     {
-        
+        mainMenuUI = MainMenuUI.Instance;
+    }
+
+    private void OnDisable() 
+    {
+        gameManager.OnPregameEnter -= OnPregameEnter;
+        gameManager.OnGameStart -= OnGameStart;
+        gameManager.OnGamePause -= OnGamePause;
+    }
+
+    private void OnPregameEnter()
+    {
+        mainMenuUI.myCanvas.SetActive(true);
+    }
+
+    private void OnGameStart()
+    {
+        mainMenuUI.myCanvas.SetActive(false);
+    }
+
+    private void OnGamePause()
+    {
+        mainMenuUI.myCanvas.SetActive(true);
     }
 }
