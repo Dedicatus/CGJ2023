@@ -24,14 +24,15 @@ public class FlagManager : MonoBehaviour
             if (requirement != Requirement.none)
             {
                 usedFlagDict[requirement] = 0;
+                addANewSlot(requirement);
             }
         }
         DragableIcon.flagSpawned += replaceOneSlot;
-        while (currentFlagList.Count < slotNumber)
-        {
-            addANewSlot();
-        }
-
+        //while (currentFlagList.Count < slotNumber)
+        //{
+        //    Requirement newRequirement = getNewRequirement();
+        //    addANewSlot(newRequirement);
+        //}
         //for (int i = 0; i < 1000; i++)
         //{
         //    getNewRequirement();
@@ -49,9 +50,8 @@ public class FlagManager : MonoBehaviour
         
     }
 
-    private void addANewSlot(bool needCD = false)
+    private void addANewSlot(Requirement newRequirement,bool needCD = false)
     {
-        Requirement newRequirement = getNewRequirement();
         GameObject newFlagIcon = GameObject.Instantiate(flagIconPrefab);
         newFlagIcon.GetComponent<DragableIcon>().initFlagIcon(newRequirement,needCD);
         newFlagIcon.transform.SetParent(flagCanvas, false);
@@ -62,7 +62,7 @@ public class FlagManager : MonoBehaviour
     {
         currentFlagList.Remove(removedSlot);
         Destroy(removedSlot);
-        addANewSlot(true) ;
+        //addANewSlot(true) ;
     }
 
     private Requirement getNewRequirement()

@@ -5,16 +5,16 @@ using Sirenix.OdinInspector;
 
 public class EmojiController : MonoBehaviour
 {
-    private Canvas _inGameCanvas;
+    private Transform _inGameCanvas;
 
-    public Canvas InGameCanvas
+    public Transform InGameCanvas
     {
         get
         {
             if (_inGameCanvas == null)
             {
-                _inGameCanvas = GameObject.Find("UIManager/InGameUI_WorldSpace/InGameCanvas").GetComponent<Canvas>();
-                _inGameCanvas = _inGameCanvas ? _inGameCanvas : FindObjectOfType<Canvas>();
+                _inGameCanvas = GameObject.Find("UIManager/InGameUI_WorldSpace/InGameCanvas/Emoji").transform;
+                _inGameCanvas = _inGameCanvas ? _inGameCanvas : FindObjectOfType<Canvas>().transform;
             }
 
             return _inGameCanvas;
@@ -24,6 +24,8 @@ public class EmojiController : MonoBehaviour
     public EmojiDisplay emojiDisplayPrefab;
 
     public EmojiDisplay emojiDisplay;
+
+    public Transform body;
 
     [SerializeField] private EmojiDatas emojiDatas;
 
@@ -38,7 +40,8 @@ public class EmojiController : MonoBehaviour
         if (emojiDisplay == null)
         {
             emojiDisplay = Instantiate(emojiDisplayPrefab, InGameCanvas.transform);
-            emojiDisplay.character = transform;
+            emojiDisplay.character = body;
+            emojiDisplay.SetPosition();
             emojiDisplay.gameObject.SetActive(false);
         }
     }
