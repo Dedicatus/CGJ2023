@@ -41,7 +41,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         {
             // Store the initial position of the object and the mouse
             myFakeFlag = Instantiate(fakeflagPrefab);
-            myFakeFlag.GetComponent<FakeFlagController>().InitFakeFlag(requirement, flagDatas.GetFlagSprite(requirement), radius);
+            myFakeFlag.GetComponent<FakeFlagController>().InitFakeFlag(requirement, flagDatas.GetFlagSprite(requirement), radius, flagDatas.GetColor(requirement));
         }
     }
 
