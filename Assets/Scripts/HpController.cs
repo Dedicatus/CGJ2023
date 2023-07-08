@@ -171,6 +171,8 @@ public class HpController : MonoBehaviour
             temp.GetComponent<RequirementController>().enabled = false;
             temp.GetComponent<EmojiController>().ShowEmoji(deadEmoji);
             temp.destroyBodyPrefabs.Add(temp.GetComponent<EmojiController>().emojiDisplay.gameObject);
+            temp.GetComponent<RequirementController>().sliderRenderer.material
+                .SetFloat(SliderAmount, sliderRenderer.material.GetFloat(SliderAmount));
             // var all = temp.GetComponentsInChildren<MonoBehaviour>();
             // foreach (var component in all)
             // {

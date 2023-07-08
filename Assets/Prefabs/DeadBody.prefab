@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2160ddb2982931d48abd6a633fa56d2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walls: []
+  destroyBodyPrefabs: []
 --- !u!114 &5865259709920180065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +236,9 @@ MonoBehaviour:
   curRequirement: 
   historyRequirement: 
   requirementPool: 0100000002000000030000000400000005000000
+  hightHat: {fileID: 0}
+  sliderRenderer: {fileID: 6577697980071934161}
+  whiteColor: 1
 --- !u!114 &3713933942760273522
 MonoBehaviour:
   m_ObjectHideFlags: 0

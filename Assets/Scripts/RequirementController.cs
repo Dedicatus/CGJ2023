@@ -17,6 +17,8 @@ public class RequirementController : MonoBehaviour
 
     public SpriteRenderer sliderRenderer;
 
+    public bool whiteColor;
+
     private void Awake()
     {
         requirementPool = Enum.GetValues(typeof(Requirement)).Cast<Requirement>().ToList();
@@ -91,7 +93,7 @@ public class RequirementController : MonoBehaviour
 
         if (sliderRenderer)
         {
-            sliderRenderer.material.SetColor(SliderColor, color);
+            sliderRenderer.material.SetColor(SliderColor, whiteColor ? Color.white : color);
         }
     }
 
