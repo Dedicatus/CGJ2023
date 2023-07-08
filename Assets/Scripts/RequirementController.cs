@@ -15,4 +15,12 @@ public class RequirementController : MonoBehaviour
     {
         
     }
+    public Requirement GetFirstRequirement()
+    {
+        return Requirement.none;
+    }
+    public Requirement GetSecondRequirement()
+    {
+        return Requirement.none;
+    }
 }

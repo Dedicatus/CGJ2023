@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2259053589790605787}
   m_LocalRotation: {x: -0, y: -0.70706844, z: -0, w: 0.70714515}
   m_LocalPosition: {x: 0, y: 0.54, z: 0.256}
-  m_LocalScale: {x: 0.70129, y: 0.34118, z: 1}
+  m_LocalScale: {x: 0.70129, y: 0.34118, z: 0.84803}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4850994470351042764}
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8598a21c8ee9ae94fbf279312b59da0d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 2402642504089894806}
   - component: {fileID: 8345723221047176318}
   - component: {fileID: -5823503076173077644}
+  - component: {fileID: 8764239970652685836}
   - component: {fileID: 6109865476418925039}
   m_Layer: 0
   m_Name: Npc
@@ -140,6 +141,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 736d26f84a93fdc429daf6b1ad3c41b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8764239970652685836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651969375025650128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da30283adfa79a7408ff13158b835c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!136 &6109865476418925039
