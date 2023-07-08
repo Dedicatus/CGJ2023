@@ -26,5 +26,6 @@ public enum Requirement
 public class RequirementSprite
 {
     public Requirement requirementType;
-    public Sprite sprite;
+    public Sprite iconSprite;
+    public Sprite flagSprite;
 }
