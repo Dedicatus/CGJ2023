@@ -6,4 +6,15 @@ using UnityEngine;
 public class RequirementColor : SerializedScriptableObject
 {
     public Dictionary<Requirement, Color> Colors;
+    public Dictionary<Requirement, Material> Materials;
+
+    public Color GetColor(Requirement requirement)
+    {
+        return Colors.TryGetValue(requirement, out var color) ? color : Color.white;
+    }
+
+    public Material GetMaterial(Requirement requirement)
+    {
+        return Materials.TryGetValue(requirement, out var color) ? color : null;
+    }
 }

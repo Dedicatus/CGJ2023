@@ -2,12 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
+
+[ExecuteAlways]
 public class RequirementController : MonoBehaviour
 {
+    public Requirement requirement;
+    public List<MeshRenderer> meshRenderers;
     public List<Requirement> curRequirement = new();
     public List<Requirement> historyRequirement = new();
     public List<Requirement> requirementPool = new();
+
 
     private void Awake()
     {
@@ -24,27 +30,27 @@ public class RequirementController : MonoBehaviour
     [ContextMenu(nameof(GetFirstRequirement))]
     public Requirement GetFirstRequirement()
     {
-        var requirement = GetRequirement(0);
+        var req = GetRequirement(0);
 #if DEBUG
-        Debug.Log($"GetFirstRequirement: {requirement}");
+        Debug.Log($"GetFirstRequirement: {req}");
 #endif
-        return requirement;
+        return req;
     }
 
     [ContextMenu(nameof(GetSecondRequirement))]
     public Requirement GetSecondRequirement()
     {
-        var requirement = GetRequirement(1);
+        var req = GetRequirement(1);
 #if DEBUG
-        Debug.Log($"GetFirstRequirement: {requirement}");
+        Debug.Log($"GetFirstRequirement: {req}");
 #endif
-        return requirement;
+        return req;
     }
 
-    public void SatisfyRequirement(Requirement requirement)
+    public void SatisfyRequirement(Requirement req)
     {
-        curRequirement.Remove(requirement);
-        historyRequirement.Add(requirement);
+        curRequirement.Remove(req);
+        historyRequirement.Add(req);
     }
 
 
@@ -52,4 +58,36 @@ public class RequirementController : MonoBehaviour
     {
         return curRequirement.Count > i ? curRequirement[i] : GetRandomRequirement();
     }
+
+
+#if UNITY_EDITOR
+    private RequirementColor _requirementColor;
+
+    private RequirementColor RequirementColor
+    {
+        get
+        {
+            if (_requirementColor == null)
+            {
+                _requirementColor = Resources.Load<RequirementColor>("RequirementColor");
+            }
+
+            return _requirementColor;
+        }
+    }
+
+    private void Update()
+    {
+        var graphic = GetComponent<Graphic>();
+        if (graphic != null)
+        {
+            graphic.color = RequirementColor.GetColor(requirement);
+        }
+
+        foreach (var meshRenderer in meshRenderers)
+        {
+            meshRenderer.material = RequirementColor.GetMaterial(requirement);
+        }
+    }
+#endif
 }

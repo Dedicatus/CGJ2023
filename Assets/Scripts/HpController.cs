@@ -1,8 +1,29 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class HpController : MonoBehaviour
 {
+    private Canvas _inGameCanvas;
+
+    public Canvas InGameCanvas
+    {
+        get
+        {
+            if (_inGameCanvas == null)
+            {
+                _inGameCanvas = GameObject.Find("UIManager/InGameUI_WorldSpace/InGameCanvas").GetComponent<Canvas>();
+                _inGameCanvas = _inGameCanvas ? _inGameCanvas : FindObjectOfType<Canvas>();
+            }
+
+            return _inGameCanvas;
+        }
+    }
+
+    public ValueBar valueBarPrefab;
+
+
+    public ValueBar valueBar;
     public float maxLimit = 100;
     public float hpLimit = 100;
     public float hpCur = 50;
@@ -19,6 +40,7 @@ public class HpController : MonoBehaviour
     {
         AddHp(testValue);
     }
+
 
     [ContextMenu(nameof(AddHpLimit))]
     public void AddHpLimit()
@@ -38,6 +60,20 @@ public class HpController : MonoBehaviour
         DecHp(0, testValue);
     }
 
+
+    private void Awake()
+    {
+        if (valueBar == null)
+        {
+            valueBar = Instantiate(valueBarPrefab, InGameCanvas.transform);
+            valueBar.character = transform;
+        }
+    }
+
+    private void Update()
+    {
+        valueBar.Slider.value = hpCur / hpLimit;
+    }
 
     public void AddHp(float hp, float limit = 0)
     {
