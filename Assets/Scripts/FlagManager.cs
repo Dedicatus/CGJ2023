@@ -30,10 +30,10 @@ public class FlagManager : MonoBehaviour
             addANewSlot();
         }
 
-        for (int i = 0; i < 100; i++)
-        {
-            getNewRequirement();
-        }
+        //for (int i = 0; i < 1000; i++)
+        //{
+        //    getNewRequirement();
+        //}
     }
 
     // Update is called once per frame
@@ -66,12 +66,19 @@ public class FlagManager : MonoBehaviour
         foreach(var(requirement,realCount) in usedFlagDict)
         {
             int expectationCount = usedFlagNumber/Enum.GetValues(typeof(Requirement)).Length;
+            if (expectationCount - realCount > 2)
+            {
+                Debug.Log("Maybe!");
+            }
             float weight = 3/(3.001f-(expectationCount - realCount));
+            if (weight < 0)
+            {
+                weight = 10000;
+            }
             totalWeight += weight;
             weightList.Add(requirement, totalWeight);
         }
         float randomValue = UnityEngine.Random.Range(0, totalWeight);
-        Debug.Log("RandomValue:" + randomValue);
         float lowerValue = 0;
         foreach(var(requirement, requiredWeight) in weightList)
         {
