@@ -12,7 +12,7 @@ public class GameManager : MonoSingleton<GameManager>
         PAUSED
     }
 
-    private GameState curGameState = GameState.PREGAME;
+    [SerializeField] private GameState curGameState = GameState.PREGAME;
 
     public UnityAction OnPregameEnter;
 
@@ -21,6 +21,13 @@ public class GameManager : MonoSingleton<GameManager>
     public UnityAction OnGamePause;
 
     private float gameTime = 0f;
+    public float GameTime
+    {
+        get
+        {
+            return gameTime;
+        }
+    }
 
     public void SetGameState(GameState state)
     {
