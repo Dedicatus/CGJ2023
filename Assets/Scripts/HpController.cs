@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class HpController : MonoBehaviour
 {
     public float maxLimit = 100;
-    public float hpLimit;
+    public float hpLimit = 100;
     public float hpCur = 50;
 
     public UnityAction OnDie;
