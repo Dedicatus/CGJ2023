@@ -24,7 +24,7 @@ public class ResultUI : MonoSingleton<ResultUI>
 
     public void OnReturnButtonClicked()
     {
-        gameManager.SetGameState(GameManager.GameState.PREGAME);
+        gameManager.ReloadCurrentScene();
     }
 
     private void SetScoreText()

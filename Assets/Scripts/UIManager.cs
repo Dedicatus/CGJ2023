@@ -79,7 +79,7 @@ public class UIManager : MonoBehaviour
                 inGameUIWorldSpace.myCanvas.SetActive(true);
                 break;
             case GameManager.GameState.PAUSED:
-                mainMenuUI.myCanvas.SetActive(true);
+                mainMenuUI.myCanvas.SetActive(false);
                 pauseUI.myCanvas.SetActive(true);
                 resultUI.myCanvas.SetActive(false);
                 inGameUI.myCanvas.SetActive(true);

@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GoldMasterScene.unity
+    guid: 14ddf3e138f3741969ed212989d4c639
   m_configObjects: {}

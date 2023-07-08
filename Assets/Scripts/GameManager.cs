@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Sirenix.OdinInspector;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -138,12 +139,12 @@ public class GameManager : MonoSingleton<GameManager>
         inGameHours = tempInGameHours + startingHour;
     }
 
-    // private void ReloadCurrentScene()
-    // {
-    //     // Get the index of the current active scene
-    //     int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    public void ReloadCurrentScene()
+    {
+        // Get the index of the current active scene
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-    //     // Load the scene with the same index, effectively reloading it
-    //     SceneManager.LoadScene(currentSceneIndex);
-    // }
+        // Load the scene with the same index, effectively reloading it
+        SceneManager.LoadScene(currentSceneIndex);
+    }
 }

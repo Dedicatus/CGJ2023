@@ -420,8 +420,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCanvas: {fileID: 0}
   inGameTimeText: {fileID: 2913315634126619755}
-  realSecondsToInGameHour: 90
-  startingHour: 20
 --- !u!1 &9176237331294281058
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +541,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3883627978004631570}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5052902319922847188}
+        m_TargetAssemblyTypeName: InGameUI, Assembly-CSharp
+        m_MethodName: OnPauseButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1962635039358313162
 PrefabInstance:
   m_ObjectHideFlags: 0
