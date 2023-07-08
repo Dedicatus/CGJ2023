@@ -10,6 +10,7 @@ public class RequirementController : MonoBehaviour
 {
     public Requirement requirement;
     public List<MeshRenderer> meshRenderers;
+    public List<SpriteRenderer> spriteRenderers;
     public List<Requirement> curRequirement = new();
     public List<Requirement> historyRequirement = new();
     public List<Requirement> requirementPool = new();
@@ -92,6 +93,11 @@ public class RequirementController : MonoBehaviour
             color.a = 1;
             material.color = color;
             meshRenderer.material = material;
+        }
+
+        foreach (var spriteRenderer in spriteRenderers)
+        {
+            spriteRenderer.color = RequirementColor.GetColor(requirement);
         }
     }
 #endif
