@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using Sirenix.OdinInspector;
@@ -42,6 +41,7 @@ public class HpController : MonoBehaviour
     [ShowInInspector, ReadOnly] private Emoji.EmojiType curEmoji = Emoji.EmojiType.HAPPY;
     public EmojiController emojiController;
     public float testValue;
+    private static readonly int SliderAmount = Shader.PropertyToID("_SliderAmount");
 
     [ContextMenu(nameof(AddHp))]
     public void AddHp()
@@ -76,13 +76,14 @@ public class HpController : MonoBehaviour
         {
             valueBar = Instantiate(valueBarPrefab, InGameCanvas.transform);
             valueBar.character = body;
+            valueBar.gameObject.SetActive(false);
         }
     }
 
     private void Update()
     {
         valueBar.Slider.value = hpCur / hpLimit;
-        sliderRenderer.material.SetFloat("_SliderAmount", hpCur / hpLimit);
+        sliderRenderer.material.SetFloat(SliderAmount, hpCur / hpLimit);
     }
 
     public void AddHp(float hp, float limit = 0)
