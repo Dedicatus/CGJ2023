@@ -7,7 +7,7 @@ public class FlagController : MonoBehaviour
 {
     public static UnityAction<FlagController> OnSetFlag;
     public Requirement requirement;
-    public float formRadius;
+    public float formationRadius;
     public float attractRadius;
 
     private void OnEnable()
@@ -24,9 +24,9 @@ public class FlagController : MonoBehaviour
     {
         
     }
-    public bool InFormRange(Vector3 position)
+    public bool InFormationRange(Vector3 position)
     {
-        return (position - transform.position).magnitude < formRadius;
+        return (position - transform.position).magnitude < formationRadius;
     }
     public bool InAttarctRange(Vector3 position)
     {

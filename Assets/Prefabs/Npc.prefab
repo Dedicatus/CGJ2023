@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8764239970652685836}
   - component: {fileID: 6109865476418925039}
   - component: {fileID: 8660226724507689833}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Npc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,6 +133,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f9170b7432f8a4a8cb79edf8868adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLimit: 100
+  hpLimit: 100
+  hpCur: 50
+  dieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  testValue: 0
 --- !u!114 &-5823503076173077644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736d26f84a93fdc429daf6b1ad3c41b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveToFlagSpeed: 3
 --- !u!114 &8764239970652685836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da30283adfa79a7408ff13158b835c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curRequirement: 
+  historyRequirement: 
+  requirementPool: 
 --- !u!136 &6109865476418925039
 CapsuleCollider:
   m_ObjectHideFlags: 0

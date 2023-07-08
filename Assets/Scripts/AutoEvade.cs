@@ -12,6 +12,19 @@ public class AutoEvade : MonoBehaviour
     public List<Transform> surroundingObject = new List<Transform>();
     private Vector3 randomDir;
     private Rigidbody mRigidbody;
+    private FlagController targetFlag;
+    public FlagController TargetFlag
+    {
+        get => targetFlag;
+        set
+        {
+            if (targetFlag == null && value != null)
+            {
+                surroundingObject.Clear();
+            }
+            targetFlag = value;
+        }
+    }
     private void Awake()
     {
         randomDir = Random.insideUnitCircle.normalized;
@@ -35,6 +48,10 @@ public class AutoEvade : MonoBehaviour
         {
             return;
         }
+        if (targetFlag != null && targetFlag.isActiveAndEnabled)
+        {
+            return;
+        }
         var targetPos = GetEvadePosition(surroundingObject);
         if (evadeByForce)
         {
@@ -52,7 +69,14 @@ public class AutoEvade : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        surroundingObject.Add(collision.transform);
+        if (targetFlag != null && collision.GetComponent<AutoEvade>().targetFlag == targetFlag)
+        {
+            surroundingObject.Add(collision.transform);
+        }
+        else if (targetFlag == null)
+        {
+            surroundingObject.Add(collision.transform);
+        }
     }
 
     private void OnTriggerExit(Collider collision)
@@ -63,8 +87,8 @@ public class AutoEvade : MonoBehaviour
     private Vector3 GetEvadePosition(List<Transform> transforms)//!!O(n^2) algorithm!
     {
         if (transforms.Count == 0)
-        { 
-            return transform.parent.position; 
+        {
+            return transform.parent.position;
         }
 
         var avoidCrowdedPos = transform.parent.position;
