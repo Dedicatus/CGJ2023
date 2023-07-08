@@ -69,11 +69,16 @@ public class NpcDetector : SerializedMonoBehaviour
 
     public void LateUpdate()
     {
+        if (GameManager.Instance.GetGameState() != GameManager.GameState.RUNNING)
+        {
+            return;
+        }
+
         var uncomfortableCount = 0;
         var comfortableCount = 0;
         foreach (var (other, distance) in othersDistance)
         {
-            if (other.gameObject.activeSelf)
+            if (other && other.activeSelf)
             {
                 if (distance <= uncomfortableRadius)
                 {
