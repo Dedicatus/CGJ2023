@@ -162,6 +162,7 @@ public class HpController : MonoBehaviour
             var temp = Instantiate(deadBodyPrefab, transform.position, transform.rotation);
 
             temp.name = name + nameof(temp);
+            temp.GetComponent<RequirementController>().requirement = GetComponent<RequirementController>().requirement;
             // var all = temp.GetComponentsInChildren<MonoBehaviour>();
             // foreach (var component in all)
             // {
@@ -183,6 +184,7 @@ public class HpController : MonoBehaviour
 
             gameObject.SetActive(false);
             valueBar.gameObject.SetActive(false);
+
             GetComponent<EmojiController>().emojiDisplay.gameObject.SetActive(false);
             // Destroy(valueBar);
             // Destroy(gameObject);

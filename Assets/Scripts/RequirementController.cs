@@ -9,8 +9,8 @@ using UnityEngine.UI;
 public class RequirementController : MonoBehaviour
 {
     public Requirement requirement;
-    public List<MeshRenderer> meshRenderers;
-    public List<SpriteRenderer> spriteRenderers;
+    public List<MeshRenderer> meshRenderers = new ();
+    public List<SpriteRenderer> spriteRenderers = new ();
     public List<Requirement> curRequirement = new();
     public List<Requirement> historyRequirement = new();
     public List<Requirement> requirementPool = new();
