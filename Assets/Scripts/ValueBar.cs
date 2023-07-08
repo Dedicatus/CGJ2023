@@ -11,6 +11,7 @@ public class ValueBar : SerializedMonoBehaviour
 
     public float scale = 0.1f;
     public float offsetY = 4;
+    public float offsetX;
 
     [ReadOnly] [SerializeField] private Slider slider;
 
@@ -40,13 +41,9 @@ public class ValueBar : SerializedMonoBehaviour
 
     private void LateUpdate()
     {
-        var mainCamera = Camera.main;
-        if (mainCamera == null)
-        {
-            return;
-        }
         transform.rotation = character.rotation;
         transform.position = character.position + character.up * offsetY;
+        transform.position += character.right * offsetX;
         transform.localScale = new Vector3(scale, scale, scale);
     }
 }

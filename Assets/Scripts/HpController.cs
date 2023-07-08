@@ -5,16 +5,16 @@ using Sirenix.OdinInspector;
 
 public class HpController : MonoBehaviour
 {
-    private Canvas _inGameCanvas;
+    private Transform _inGameCanvas;
 
-    public Canvas InGameCanvas
+    public Transform InGameCanvas
     {
         get
         {
             if (_inGameCanvas == null)
             {
-                _inGameCanvas = GameObject.Find("UIManager/InGameUI_WorldSpace/InGameCanvas").GetComponent<Canvas>();
-                _inGameCanvas = _inGameCanvas ? _inGameCanvas : FindObjectOfType<Canvas>();
+                _inGameCanvas = GameObject.Find("UIManager/InGameUI_WorldSpace/InGameCanvas/Bar").transform;
+                _inGameCanvas = _inGameCanvas ? _inGameCanvas : FindObjectOfType<Canvas>().transform;
             }
 
             return _inGameCanvas;

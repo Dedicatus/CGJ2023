@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da30283adfa79a7408ff13158b835c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requirement: 2
+  requirement: 4
   meshRenderers:
   - {fileID: 7285465261903153122}
   spriteRenderers:
@@ -244,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emojiDisplayPrefab: {fileID: 7008901547518531110, guid: f3d9796e7d68941b9be063a468e486ee, type: 3}
   emojiDisplay: {fileID: 0}
+  body: {fileID: 4049771969839028657}
   emojiDatas: {fileID: 11400000, guid: 5cf4ed93a62714957ba2ad87d70abc8f, type: 2}
   curPriority: -1
   displayTime: 5
@@ -360,7 +361,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 40e940ed3d865994c918d876857ebacf, type: 2}
+  - {fileID: 2100000, guid: ba6963e8aedd2fd449deba7b84eb6496, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -552,7 +553,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c0e7d06c0f30c44978641aa9039dffcf, type: 3}
-  m_Color: {r: 0.3019608, g: 0.5019608, b: 0.6745098, a: 1}
+  m_Color: {r: 0.22352943, g: 0.48235297, b: 0.3137255, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -655,7 +656,7 @@ MonoBehaviour:
   lonelyDecrease: 0.005
   uncomfortableIncrease: 0.005
   comfortableDecrease: 0.005
-  uncomfortableRate: 0
+  uncomfortableRate: 0.004
   comfortableRate: 0
   others: []
   hpController: {fileID: 8345723221047176318}
