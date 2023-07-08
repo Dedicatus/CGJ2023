@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valueBarPrefab: {fileID: 3695763606957740129, guid: 6f4a8ec7274720644b50662bc5e9624c, type: 3}
+  deadBodyPrefab: {fileID: 2544473659846441045, guid: d7063b56b7bd948429e0b8363769824b, type: 3}
   valueBar: {fileID: 0}
   maxLimit: 100
   hpLimit: 100
@@ -169,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da30283adfa79a7408ff13158b835c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requirement: 3
+  requirement: 4
   meshRenderers:
   - {fileID: 7285465261903153122}
   curRequirement: 
@@ -284,7 +285,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eb9c147c81381044b87fb54cccc6bd31, type: 2}
+  - {fileID: 2100000, guid: d9a2424fcc2b72c49ae66a319a911ea9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

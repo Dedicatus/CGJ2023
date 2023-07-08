@@ -32,9 +32,9 @@ public class RequirementController : MonoBehaviour
     public Requirement GetFirstRequirement()
     {
         var req = GetRequirement(0);
-#if DEBUG
-        Debug.Log($"GetFirstRequirement: {req}");
-#endif
+// #if DEBUG
+//         Debug.Log($"GetFirstRequirement: {req}");
+// #endif
         return req;
     }
 
@@ -42,9 +42,9 @@ public class RequirementController : MonoBehaviour
     public Requirement GetSecondRequirement()
     {
         var req = GetRequirement(1);
-#if DEBUG
-        Debug.Log($"GetFirstRequirement: {req}");
-#endif
+// #if DEBUG
+//         Debug.Log($"GetFirstRequirement: {req}");
+// #endif
         return req;
     }
 
@@ -87,7 +87,11 @@ public class RequirementController : MonoBehaviour
 
         foreach (var meshRenderer in meshRenderers)
         {
-            meshRenderer.material = RequirementColor.GetMaterial(requirement);
+            var material = RequirementColor.GetMaterial(requirement);
+            var color = material.color;
+            color.a = 1;
+            material.color = color;
+            meshRenderer.material = material;
         }
     }
 #endif
