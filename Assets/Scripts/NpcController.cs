@@ -14,16 +14,20 @@ public class NpcController : MonoBehaviour
 
     private void OnSetFlag(FlagController flagCtrl)
     {
-        if (flagCtrl.requirement == GetComponent<RequirementController>().GetFirstRequirement())
+        //if (flagCtrl != null && flagCtrl.isActiveAndEnabled)
+        //{
+        //    return;
+        //}
+        if (flagCtrl.requirement == GetComponent<RequirementController>().requirement)
         {
             GetComponentInChildren<AutoEvade>().TargetFlag = flagCtrl;
             targetFlag = flagCtrl;
         }
-        else if (flagCtrl.requirement == GetComponent<RequirementController>().GetSecondRequirement())
-        {
-            GetComponentInChildren<AutoEvade>().TargetFlag = flagCtrl;
-            targetFlag = flagCtrl;
-        }
+        //else if (flagCtrl.requirement == GetComponent<RequirementController>().GetSecondRequirement())
+        //{
+        //    GetComponentInChildren<AutoEvade>().TargetFlag = flagCtrl;
+        //    targetFlag = flagCtrl;
+        //}
     }
 
     void Update()
@@ -38,7 +42,7 @@ public class NpcController : MonoBehaviour
         }
         var inFormationRange = targetFlag.InFormationRange(transform.position);
         var inAttarctRange = targetFlag.InAttarctRange(transform.position);
-        if ( targetFlag.isActiveAndEnabled && inAttarctRange && !inFormationRange)
+        if ( targetFlag.isActiveAndEnabled && inAttarctRange)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetFlag.transform.position, moveToFlagSpeed * Time.deltaTime);
         }
