@@ -14,8 +14,11 @@ public class RequirementController : MonoBehaviour
     public List<Requirement> historyRequirement = new();
     public List<Requirement> requirementPool = new();
     public GameObject hightHat;
+    public GameObject arrow;
 
     public SpriteRenderer sliderRenderer;
+
+    public bool whiteColor;
 
     private void Awake()
     {
@@ -91,7 +94,7 @@ public class RequirementController : MonoBehaviour
 
         if (sliderRenderer)
         {
-            sliderRenderer.material.SetColor(SliderColor, color);
+            sliderRenderer.material.SetColor(SliderColor, whiteColor ? Color.white : color);
         }
     }
 

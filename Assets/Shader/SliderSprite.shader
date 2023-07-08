@@ -85,7 +85,8 @@ Shader "Sprites/Slider"
 				fixed4 frag(v2f IN) : SV_Target
 				{
 					fixed4 c = SampleSpriteTexture(IN.texcoord) * IN.color;
-					if (c.r < 0.3f && IN.texcoord.y < _SliderAmount)
+					float texcoordRemap = (IN.texcoord.y - 0.19) / (0.59 - 0.19);
+					if (c.r < 0.3f && texcoordRemap < _SliderAmount)
 					{
 						c.rgb = _SliderColor;
 					}

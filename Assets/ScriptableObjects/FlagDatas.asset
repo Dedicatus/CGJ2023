@@ -16,21 +16,24 @@ MonoBehaviour:
   - requirementType: 0
     iconSprite: {fileID: 21300000, guid: e0a383a0cd6af47e98e9da6bc5ef9969, type: 3}
     flagSprite: {fileID: 21300000, guid: e0a383a0cd6af47e98e9da6bc5ef9969, type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
   - requirementType: 1
     iconSprite: {fileID: 21300000, guid: 65d22e0eb3a2442c78de629e2910f044, type: 3}
     flagSprite: {fileID: 21300000, guid: f6f6dcee87cff409fbcc9ff254b691c7, type: 3}
+    color: {r: 0.90196085, g: 0.60784316, b: 0.5176471, a: 1}
   - requirementType: 2
     iconSprite: {fileID: 21300000, guid: e67d771fb256a45dbb228f9540906eeb, type: 3}
     flagSprite: {fileID: 21300000, guid: 25c7c6c24ac104e179b43ffe5863d199, type: 3}
+    color: {r: 0.65882355, g: 0.8000001, b: 0.9333334, a: 1}
   - requirementType: 3
     iconSprite: {fileID: 21300000, guid: 22181205dd325499cb4229bb99cd2169, type: 3}
     flagSprite: {fileID: 21300000, guid: 44c2d4c9a9196472a82aee83be2a8d1b, type: 3}
+    color: {r: 0.82745105, g: 0.6745098, b: 0.56078434, a: 1}
   - requirementType: 4
     iconSprite: {fileID: 21300000, guid: 83924f28073d84b85af8e1822926ede8, type: 3}
     flagSprite: {fileID: 21300000, guid: 70a9597fc01144e84974a710ee60835b, type: 3}
+    color: {r: 0.6, g: 0.76470596, b: 0.40000004, a: 1}
   - requirementType: 5
     iconSprite: {fileID: 21300000, guid: cc48e838c71674e81a754c19052046bc, type: 3}
     flagSprite: {fileID: 21300000, guid: e5e78176d3526430388467060a0f7156, type: 3}
-  - requirementType: 6
-    iconSprite: {fileID: 21300000, guid: e677374ba744e4173b66022f07b52f8b, type: 3}
-    flagSprite: {fileID: 21300000, guid: 10e38e071a06f4fa884a7ade27913c4f, type: 3}
+    color: {r: 0.58431375, g: 0.4156863, b: 0.80392164, a: 1}
