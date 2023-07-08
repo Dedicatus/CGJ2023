@@ -18,4 +18,6 @@ public enum Requirement
     Green,
     Gray,
     Dark,
+    Purple,
+    Pink,
 }

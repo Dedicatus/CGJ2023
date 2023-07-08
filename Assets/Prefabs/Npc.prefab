@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f9170b7432f8a4a8cb79edf8868adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  valueBarPrefab: {fileID: 3695763606957740129, guid: 6f4a8ec7274720644b50662bc5e9624c, type: 3}
+  valueBar: {fileID: 0}
   maxLimit: 100
   hpLimit: 100
   hpCur: 50
@@ -165,9 +167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da30283adfa79a7408ff13158b835c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requirement: 0
+  meshRenderers:
+  - {fileID: 7285465261903153122}
   curRequirement: 
   historyRequirement: 
-  requirementPool: 
+  requirementPool: 0100000002000000030000000400000005000000060000000700000008000000
 --- !u!136 &6109865476418925039
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -259,7 +264,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7584ee2da67c68e4a973eaec151b20dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
