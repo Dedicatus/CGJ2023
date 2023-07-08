@@ -25,6 +25,7 @@ public class HpController : MonoBehaviour
 
     public DeadBody deadBodyPrefab;
     public ValueBar valueBar;
+    public Renderer sliderRenderer;
     public float maxLimit = 100;
     public float hpLimit = 100;
     public float hpCur = 50;
@@ -81,6 +82,7 @@ public class HpController : MonoBehaviour
     private void Update()
     {
         valueBar.Slider.value = hpCur / hpLimit;
+        sliderRenderer.material.SetFloat("_SliderAmount", hpCur / hpLimit);
     }
 
     public void AddHp(float hp, float limit = 0)
