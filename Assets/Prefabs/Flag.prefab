@@ -264,9 +264,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirement: 0
-  formationRadius: 3
+  formationRadius: 5
   attractRadius: 17
-  keepTime: 9.7
+  keepTime: 10
   distribution: {fileID: 7141015187946711843}
   distributionLayer:
     serializedVersion: 2
