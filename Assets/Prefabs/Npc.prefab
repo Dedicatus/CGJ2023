@@ -186,6 +186,7 @@ MonoBehaviour:
   valueBarPrefab: {fileID: 3695763606957740129, guid: 6f4a8ec7274720644b50662bc5e9624c, type: 3}
   deadBodyPrefab: {fileID: 2544473659846441045, guid: d7063b56b7bd948429e0b8363769824b, type: 3}
   valueBar: {fileID: 0}
+  sliderRenderer: {fileID: 0}
   maxLimit: 100
   hpLimit: 100
   hpCur: 50
@@ -650,31 +651,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 10
-    - Name: $v
-      Entry: 4
-      Data: 1.3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 40
-    - Name: $v
-      Entry: 4
-      Data: 1.8
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 25
+      Data: 90
     - Name: $v
       Entry: 4
       Data: 1.5
@@ -686,7 +663,31 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 60
+      Data: 135
+    - Name: $v
+      Entry: 4
+      Data: 1.8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 45
+    - Name: $v
+      Entry: 4
+      Data: 1.3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 180
     - Name: $v
       Entry: 4
       Data: 2
@@ -698,7 +699,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 120
+      Data: 225
     - Name: $v
       Entry: 4
       Data: 3
