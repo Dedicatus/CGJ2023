@@ -20,34 +20,13 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public static UnityAction<GameObject> flagSpawned;
     public Image flagImage;
     public Image coverImage;
+    [SerializeField]
+    private FlagDatas flagDatas;
 
-    public void initFlagIcon(Requirement require, float newcd = 0)
+    public void initFlagIcon(Requirement commmingRequirement, float newcd = 0)
     {
-        requirement = require;
-        switch (requirement)
-        {
-            case Requirement.Blue:
-                flagImage.color = Color.blue;
-                break;
-            case Requirement.Gray:
-                flagImage.color = Color.gray;
-                break;
-            case Requirement.Dark:
-                flagImage.color = Color.black;
-                break;
-            case Requirement.Green:
-                flagImage.color = Color.green;
-                break;
-            case Requirement.Red:
-                flagImage.color = Color.red;
-                break;
-            case Requirement.Yellow:
-                flagImage.color = Color.yellow;
-                break;
-            case Requirement.none:
-                flagImage.color = Color.white;
-                break;
-        }
+        requirement = commmingRequirement;
+        flagImage.sprite = flagDatas.GetFlagSprite(requirement);
         maxCD = newcd;
         currentcd = newcd;
         canSpawn = newcd > 0 ? false : true;
@@ -59,6 +38,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         {
             // Store the initial position of the object and the mouse
             myFakeFlag = Instantiate(fakeflagPrefab);
+            myFakeFlag.GetComponentInChildren<SpriteRenderer>().sprite = flagImage.sprite;
         }
     }
 
@@ -92,7 +72,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             {
                 Destroy(myFakeFlag.gameObject);
                 GameObject newFlag = Instantiate(flagPrefab, hit.point, Quaternion.identity);
-                newFlag.GetComponent<FlagController>().InitFlag(requirement);
+                newFlag.GetComponent<FlagController>().InitFlag(requirement, flagImage.sprite);
                 flagSpawned.Invoke(gameObject);
             }
             else

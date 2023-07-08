@@ -13,9 +13,21 @@ MonoBehaviour:
   m_Name: EmojiDatas
   m_EditorClassIdentifier: 
   emojiDataList:
-  - emojiType: 1
+  - emojiType: 0
     priority: 1
     sprite: {fileID: 21300000, guid: fec87930501cd48ffafb1ff0d31cdfbd, type: 3}
-  - emojiType: 0
+  - emojiType: 15
     priority: 2
+    sprite: {fileID: 21300000, guid: fec87930501cd48ffafb1ff0d31cdfbd, type: 3}
+  - emojiType: 50
+    priority: 0
     sprite: {fileID: 21300000, guid: a55dd2d310ca4490c92434673daa7f95, type: 3}
+  - emojiType: 60
+    priority: 0
+    sprite: {fileID: 21300000, guid: a55dd2d310ca4490c92434673daa7f95, type: 3}
+  - emojiType: 85
+    priority: 0
+    sprite: {fileID: 21300000, guid: fec87930501cd48ffafb1ff0d31cdfbd, type: 3}
+  - emojiType: 100
+    priority: 0
+    sprite: {fileID: 21300000, guid: fec87930501cd48ffafb1ff0d31cdfbd, type: 3}
