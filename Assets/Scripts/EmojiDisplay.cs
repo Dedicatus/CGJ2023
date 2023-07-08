@@ -4,27 +4,13 @@ using UnityEngine.UI;
 
 // ReSharper disable Unity.InefficientPropertyAccess
 
-[RequireComponent(typeof(Image))]
 public class EmojiDisplay : SerializedMonoBehaviour
 {
-    [ReadOnly] [SerializeField] private Image image;
+    [SerializeField] private Image image;
 
     public float scale = 0.1f;
     public float offsetY = 4;
-
-    public Image Image
-    {
-        get
-        {
-            if (image == null)
-            {
-                image = GetComponent<Image>();
-            }
-
-            return image;
-        }
-    }
-
+    
     public Transform character;
 
     public void Update()
@@ -48,6 +34,6 @@ public class EmojiDisplay : SerializedMonoBehaviour
 
     public void SetSprite(Sprite sprite)
     {
-        Image.sprite = sprite;
+        image.sprite = sprite;
     }
 }

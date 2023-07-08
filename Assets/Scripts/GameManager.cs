@@ -137,4 +137,13 @@ public class GameManager : MonoSingleton<GameManager>
         }
         inGameHours = tempInGameHours + startingHour;
     }
+
+    // private void ReloadCurrentScene()
+    // {
+    //     // Get the index of the current active scene
+    //     int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+    //     // Load the scene with the same index, effectively reloading it
+    //     SceneManager.LoadScene(currentSceneIndex);
+    // }
 }
