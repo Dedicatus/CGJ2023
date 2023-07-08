@@ -19,6 +19,7 @@ public class RequirementController : MonoBehaviour
     {
         requirementPool = Enum.GetValues(typeof(Requirement)).Cast<Requirement>().ToList();
         requirementPool.RemoveAll(t => t == Requirement.none);
+        requirement = GetFirstRequirement();
     }
 
     private Requirement GetRandomRequirement()
