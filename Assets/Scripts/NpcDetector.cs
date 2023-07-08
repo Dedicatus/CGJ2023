@@ -16,7 +16,8 @@ public class NpcDetector : SerializedMonoBehaviour
     public float comfortableDecrease = 0.1f;
     public float uncomfortableRate;
     public float comfortableRate;
-
+    [SerializeField] private float increaseValue;
+    [SerializeField] private float decreaseValue;
 
     public Dictionary<int, float> speedConfigs = new();
     private List<int> _speedConfigKeys = new();
@@ -113,15 +114,20 @@ public class NpcDetector : SerializedMonoBehaviour
             }
         }
 
+        increaseValue = 0;
+        decreaseValue = 0;
+
         if (uncomfortableCount > 0)
         {
-            var decrease = uncomfortableRate * uncomfortableCount;
-            hpController.AddHp(uncomfortableIncrease * valueChangeSpeed + decrease);
+            var increase = uncomfortableRate * uncomfortableCount;
+            increaseValue = uncomfortableIncrease * valueChangeSpeed + increase;
+            hpController.AddHp(increaseValue);
         }
         else if (comfortableCount > 0)
         {
-            var increase = comfortableRate * comfortableCount;
-            hpController.DecHp(comfortableDecrease * valueChangeSpeed + increase);
+            var decrease = comfortableRate * comfortableCount;
+            decreaseValue = comfortableDecrease * valueChangeSpeed + decrease;
+            hpController.DecHp(decreaseValue);
         }
         else
         {
