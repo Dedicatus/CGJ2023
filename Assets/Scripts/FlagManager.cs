@@ -74,7 +74,7 @@ public class FlagManager : MonoBehaviour
         {
             if (requirement != Requirement.none)
             {
-                int expectationCount = usedFlagNumber/Enum.GetValues(typeof(Requirement)).Length;
+                int expectationCount = usedFlagNumber/(Enum.GetValues(typeof(Requirement)).Length-1);
                 if (expectationCount - realCount > 2)
                 {
                     Debug.Log("Maybe!");
