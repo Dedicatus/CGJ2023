@@ -27,7 +27,10 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         requirement = commmingRequirement;
         flagImage.sprite = flagDatas.GetFlagSprite(requirement);
-        currentcd = maxCD;
+        if (needCD)
+        {
+            currentcd = maxCD;
+        }
         canSpawn = !needCD;
     }
 
