@@ -1,14 +1,13 @@
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Sprites/Slider"
+Shader "Sprites/CircleSlider"
 {
 	Properties
 	{
 		[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
 		_Color("Tint", Color) = (1,1,1,1)
-		_SliderColor("Slider Color", Color) = (1,1,1,1)
-		_SliderAmount("SliderAmount", Float) = 0
 		[MaterialToggle] PixelSnap("Pixel snap", Float) = 0
+		_SliderAmount("SliderAmount", Float) = 0
 	}
 
 		SubShader
@@ -50,8 +49,6 @@ Shader "Sprites/Slider"
 				};
 
 				fixed4 _Color;
-				fixed4 _SliderColor;
-				float _SliderAmount;
 
 				v2f vert(appdata_t IN)
 				{
@@ -69,6 +66,7 @@ Shader "Sprites/Slider"
 				sampler2D _MainTex;
 				sampler2D _AlphaTex;
 				float _AlphaSplitEnabled;
+				float _SliderAmount;
 
 				fixed4 SampleSpriteTexture(float2 uv)
 				{
@@ -85,9 +83,13 @@ Shader "Sprites/Slider"
 				fixed4 frag(v2f IN) : SV_Target
 				{
 					fixed4 c = SampleSpriteTexture(IN.texcoord) * IN.color;
-					if (c.r < 0.3f && IN.texcoord.y < _SliderAmount)
+					float2 atan2Coord = float2(lerp(-1, 1, IN.texcoord.x), lerp(-1, 1, IN.texcoord.y));
+					float atanAngle = atan2(atan2Coord.y, atan2Coord.x) * 57.3 - 90; // angle in degrees
+					if (atanAngle < 0) atanAngle = 360 + atanAngle;
+
+					if (atanAngle < 0 || atanAngle > 360 * _SliderAmount)
 					{
-						c.rgb = _SliderColor;
+						discard;
 					}
 					c.rgb *= c.a;
 					return c;
