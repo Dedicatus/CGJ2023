@@ -24,6 +24,8 @@ public class EmojiController : MonoBehaviour
 
     public EmojiDisplay emojiDisplay;
 
+    [SerializeField] private EmojiDatas emojiDatas;
+
     private void Awake()
     {
         if (emojiDisplay == null)
@@ -31,5 +33,10 @@ public class EmojiController : MonoBehaviour
             emojiDisplay = Instantiate(emojiDisplayPrefab, InGameCanvas.transform);
             emojiDisplay.character = transform;
         }
+    }
+
+    public void ShowEmoji(Emoji.EmojiType emojiType)
+    {
+        
     }
 }

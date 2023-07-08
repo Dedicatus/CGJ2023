@@ -27,6 +27,8 @@ public class EmojiDisplay : SerializedMonoBehaviour
 
     public Transform character;
 
+    public int curPriority = -1;
+
     public void Update()
     {
         transform.position = character.position;
@@ -44,5 +46,10 @@ public class EmojiDisplay : SerializedMonoBehaviour
         transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.forward,
             mainCamera.transform.rotation * Vector3.up);
         transform.localScale = new Vector3(scale, scale, scale);
+    }
+
+    public void ShowEmoji(Emoji.EmojiType emojiType)
+    {
+        //Image.sprite = Emoji.GetEmojiSprite(emojiType);
     }
 }
