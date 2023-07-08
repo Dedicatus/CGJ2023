@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DeadBody : MonoBehaviour
 {
@@ -61,9 +63,24 @@ public class DeadBody : MonoBehaviour
         // var activeDirection = new[] { Vector3.up, Vector3.down, Vector3.left, Vector3.right }[maxIndex];
         // var endPosition = targetWall.position + activeDirection * 0.5f;
 
+        List<object> allRender = new List<object>();
+        allRender.AddRange(GetComponentsInChildren<SpriteRenderer>().ToList());
+        allRender.AddRange(destroyBodyPrefabs.SelectMany(t => t.GetComponentsInChildren<Image>()));
 
-        var allRender = GetComponentsInChildren<SpriteRenderer>();
-        var allColors = allRender.ToList().Select(t => t.color).ToArray();
+        var allColors = allRender.ToList().Select(t =>
+        {
+            if (t is SpriteRenderer spriteRenderer)
+            {
+                return spriteRenderer.color;
+            }
+
+            if (t is Image image)
+            {
+                return image.color;
+            }
+
+            return Color.white;
+        }).ToArray();
 
         while (elapsedTime < duration)
         {
@@ -74,7 +91,16 @@ public class DeadBody : MonoBehaviour
             {
                 var startColor = allColors[i];
                 var newColor = Color.Lerp(startColor, Color.clear, elapsedTime / duration);
-                allRender[i].color = newColor;
+                // allRender[i].color = newColor;
+                if (allRender[i] is SpriteRenderer spriteRenderer)
+                {
+                    spriteRenderer.color = newColor;
+                }
+
+                if (allRender[i] is Image image)
+                {
+                    image.color = newColor;
+                }
             }
 
             elapsedTime += Time.deltaTime;
