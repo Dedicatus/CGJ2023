@@ -420,8 +420,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCanvas: {fileID: 0}
   inGameTimeText: {fileID: 2913315634126619755}
-  realSecondsToInGameHour: 90
-  startingHour: 20
 --- !u!1 &9176237331294281058
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,11 +583,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1911749206403662179, guid: c218239662289440a82e3947c0ad6a21, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 228
       objectReference: {fileID: 0}
     - target: {fileID: 1911749206403662179, guid: c218239662289440a82e3947c0ad6a21, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 300
+      value: 453
       objectReference: {fileID: 0}
     - target: {fileID: 1911749206403662179, guid: c218239662289440a82e3947c0ad6a21, type: 3}
       propertyPath: m_LocalScale.x
