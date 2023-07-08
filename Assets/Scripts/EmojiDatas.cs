@@ -10,5 +10,11 @@ public class EmojiDatas : ScriptableObject
     {
         Emoji emoji = emojiDataList.Find(x => x.emojiType == emojiType);
         return emoji.sprite;
-    } 
+    }
+
+    public int GetEmojiPriority(Emoji.EmojiType emojiType)
+    {
+        Emoji emoji = emojiDataList.Find(x => x.emojiType == emojiType);
+        return emoji.priority;
+    }
 }
