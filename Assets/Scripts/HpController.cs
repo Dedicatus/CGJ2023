@@ -110,11 +110,11 @@ public class HpController : MonoBehaviour
             case Emoji.EmojiType.CRY:
                 break;
             case Emoji.EmojiType.UPSET:
-                if (hpCur >= 50)
-                {
-                    curEmoji = Emoji.EmojiType.HAPPY;
-                    emojiController.ShowEmoji(Emoji.EmojiType.HAPPY);
-                }
+                // if (hpCur >= 50)
+                // {
+                //     curEmoji = Emoji.EmojiType.HAPPY;
+                //     emojiController.ShowEmoji(Emoji.EmojiType.HAPPY);
+                // }
 
                 break;
             case Emoji.EmojiType.HAPPY:
@@ -144,11 +144,11 @@ public class HpController : MonoBehaviour
 
                 break;
             case Emoji.EmojiType.TIRED:
-                if (hpCur <= 60)
-                {
-                    curEmoji = Emoji.EmojiType.RELAX;
-                    emojiController.ShowEmoji(Emoji.EmojiType.UPSET);
-                }
+                // if (hpCur <= 60)
+                // {
+                //     curEmoji = Emoji.EmojiType.RELAX;
+                //     emojiController.ShowEmoji(Emoji.EmojiType.RELAX);
+                // }
 
                 break;
         }
