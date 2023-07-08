@@ -91,7 +91,8 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
             {
                 Destroy(myFakeFlag.gameObject);
-                Instantiate(flagPrefab, hit.point, Quaternion.identity);
+                GameObject newFlag = Instantiate(flagPrefab, hit.point, Quaternion.identity);
+                newFlag.GetComponent<FlagController>().InitFlag(requirement);
                 flagSpawned.Invoke(gameObject);
             }
             else

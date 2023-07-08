@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirement: 0
-  formationRadius: 0
+  formationRadius: 5
   attractRadius: 20
+  keepTime: 9999
 --- !u!1 &4143208452955749041
 GameObject:
   m_ObjectHideFlags: 0
