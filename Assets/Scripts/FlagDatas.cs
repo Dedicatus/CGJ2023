@@ -9,7 +9,11 @@ public class FlagDatas : ScriptableObject
     public Sprite GetFlagSprite(Requirement requirement)
     {
         RequirementSprite requirementSprite = flagRequirements.Find(x => x.requirementType == requirement);
-        return requirementSprite.sprite;
+        return requirementSprite.flagSprite;
     }
-
+    public Sprite GetIconSprite(Requirement requirement)
+    {
+        RequirementSprite requirementSprite = flagRequirements.Find(x => x.requirementType == requirement);
+        return requirementSprite.iconSprite;
+    }
 }

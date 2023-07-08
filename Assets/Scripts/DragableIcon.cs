@@ -15,6 +15,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [ShowInInspector,ReadOnly]
     private float currentcd = 0;
     public float maxCD = 10;
+    public float radius = 50;
     private bool canSpawn = true;
     private GameObject myFakeFlag;
     public static UnityAction<GameObject> flagSpawned;
@@ -26,7 +27,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void initFlagIcon(Requirement commmingRequirement, bool needCD = false)
     {
         requirement = commmingRequirement;
-        flagImage.sprite = flagDatas.GetFlagSprite(requirement);
+        flagImage.sprite = flagDatas.GetIconSprite(requirement);
         if (needCD)
         {
             currentcd = maxCD;
@@ -40,7 +41,8 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         {
             // Store the initial position of the object and the mouse
             myFakeFlag = Instantiate(fakeflagPrefab);
-            myFakeFlag.GetComponentInChildren<SpriteRenderer>().sprite = flagImage.sprite;
+            myFakeFlag.GetComponentInChildren<SpriteRenderer>().sprite = flagDatas.GetFlagSprite(requirement);
+            myFakeFlag.transform.GetChild(0).transform.localScale = new Vector3(radius, 1, radius);
         }
     }
 
@@ -74,7 +76,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             {
                 Destroy(myFakeFlag.gameObject);
                 GameObject newFlag = Instantiate(flagPrefab, hit.point, Quaternion.identity);
-                newFlag.GetComponent<FlagController>().InitFlag(requirement, flagImage.sprite);
+                newFlag.GetComponent<FlagController>().InitFlag(requirement, flagDatas.GetFlagSprite(requirement),radius);
                 currentcd = maxCD;
                 //flagSpawned.Invoke(gameObject);
             }

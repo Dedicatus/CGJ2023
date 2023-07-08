@@ -565,6 +565,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlagPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 1911749206403662178, guid: c218239662289440a82e3947c0ad6a21, type: 3}
+      propertyPath: m_CellSize.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911749206403662178, guid: c218239662289440a82e3947c0ad6a21, type: 3}
+      propertyPath: m_CellSize.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1911749206403662179, guid: c218239662289440a82e3947c0ad6a21, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -595,11 +603,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1911749206403662179, guid: c218239662289440a82e3947c0ad6a21, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 228
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1911749206403662179, guid: c218239662289440a82e3947c0ad6a21, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 453
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1911749206403662179, guid: c218239662289440a82e3947c0ad6a21, type: 3}
       propertyPath: m_LocalScale.x

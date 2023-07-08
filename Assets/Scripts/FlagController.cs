@@ -22,6 +22,8 @@ public class FlagController : MonoBehaviour
     private List<Transform> attractedNpcTarget;
     [SerializeField]
     private SpriteRenderer flagRender;
+    [SerializeField]
+    private GameObject rangeIndicator;
 
     private void OnEnable()
     {
@@ -86,9 +88,11 @@ public class FlagController : MonoBehaviour
         return (position - transform.position).magnitude < attractRadius;
     }
 
-    public void InitFlag(Requirement commingRequirement, Sprite sprite)
+    public void InitFlag(Requirement commingRequirement, Sprite sprite,float radius)
     {
         requirement = commingRequirement;
         flagRender.sprite = sprite;
+        attractRadius = radius;
+        rangeIndicator.transform.localScale = new Vector3(attractRadius,1, attractRadius);
     }
 }
