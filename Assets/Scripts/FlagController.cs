@@ -25,15 +25,6 @@ public class FlagController : MonoBehaviour
     {
         attractedNpc = new();
         attractedNpcTarget = new();
-        OnSetFlag?.Invoke(this);
-        foreach (var col in Physics.OverlapSphere(transform.position, attractRadius, npcLayer))
-        {
-            if (col.TryGetComponent(out RequirementController rqrCtrl) && rqrCtrl.requirement == requirement)
-            {
-                attractedNpc.Add(col.gameObject);
-            }
-        }
-        Timing.RunCoroutine(GetFormationPosition());
     }
 
     private IEnumerator<float> GetFormationPosition()
@@ -45,7 +36,7 @@ public class FlagController : MonoBehaviour
             attractedNpcTarget.Clear();
             foreach (var col in Physics.OverlapSphere(transform.position, formationRadius, distributionLayer))
             {
-                if (col.transform.parent.parent == transform)
+                if (col.transform.parent.parent != transform)
                 {
                     continue;
                 }
@@ -65,6 +56,15 @@ public class FlagController : MonoBehaviour
     void Start()
     {
         currentTime = keepTime;
+        OnSetFlag?.Invoke(this);
+        foreach (var col in Physics.OverlapSphere(transform.position, attractRadius, npcLayer))
+        {
+            if (col.TryGetComponent(out RequirementController rqrCtrl) && rqrCtrl.requirement == requirement)
+            {
+                attractedNpc.Add(col.gameObject);
+            }
+        }
+        Timing.RunCoroutine(GetFormationPosition());
     }
 
     void Update()
