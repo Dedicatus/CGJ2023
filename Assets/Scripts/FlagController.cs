@@ -7,16 +7,29 @@ public class FlagController : MonoBehaviour
 {
     public static UnityAction<FlagController> OnSetFlag;
     public Requirement requirement;
+    public float formRadius;
+    public float attractRadius;
 
-    // Start is called before the first frame update
+    private void OnEnable()
+    {
+        OnSetFlag?.Invoke(this);
+    }
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+    public bool InFormRange(Vector3 position)
+    {
+        return (position - transform.position).magnitude < formRadius;
+    }
+    public bool InAttarctRange(Vector3 position)
+    {
+        return (position - transform.position).magnitude < attractRadius;
     }
 }
