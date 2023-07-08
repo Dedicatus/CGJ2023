@@ -68,6 +68,7 @@ public class GameManager : MonoSingleton<GameManager>
     private void Start() 
     {
         npcHashSet = new HashSet<GameObject>();
+        SetGameState(curGameState);
     }
 
     public void RegisterNPC(GameObject npc)
@@ -92,7 +93,7 @@ public class GameManager : MonoSingleton<GameManager>
         {
             case GameState.PREGAME:
                 OnPregameEnter?.Invoke();
-                Time.timeScale = 1.0f;
+                Time.timeScale = 0f;
                 gameTime = 0f;
                 break;
             case GameState.RUNNING:
