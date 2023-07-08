@@ -8,15 +8,22 @@ using UnityEngine.Serialization;
 // [RequireComponent(typeof(HpController), typeof(RequirementController))]
 public class NpcDetector : SerializedMonoBehaviour
 {
-    public float uncomfortableRadius = 5f;
-    public float lonelinessRadius = 15;
-    public float valueChangeSpeed = 1;
-    public float lonelyDecrease = 0.1f;
-    public float uncomfortableIncrease = 0.1f;
-    public float comfortableDecrease = 0.1f;
+    [Tooltip("让人感受不舒服的距离")] public float uncomfortableRadius = 5f;
+    [Tooltip("让人感受孤独的距离")] public float lonelinessRadius = 15;
+    [Tooltip("值改变的速度")] public float valueChangeSpeed = 1;
+    [Tooltip("孤独时每帧下降的值")] public float lonelyDecrease = 0.1f;
+    [Tooltip("不舒服时每帧上降的值")] public float uncomfortableIncrease = 0.1f;
+    [Tooltip("舒服时每帧下降的值")] public float comfortableDecrease = 0.1f;
     public float uncomfortableRate;
     public float comfortableRate;
+    [SerializeField] private float increaseValue;
+    [SerializeField] private float decreaseValue;
 
+    public bool debug;
+    [SerializeField] 
+    private GameObject up;
+    [SerializeField] 
+    private GameObject down;
 
     public Dictionary<int, float> speedConfigs = new();
     private List<int> _speedConfigKeys = new();
@@ -113,19 +120,35 @@ public class NpcDetector : SerializedMonoBehaviour
             }
         }
 
+        increaseValue = 0;
+        decreaseValue = 0;
+
         if (uncomfortableCount > 0)
         {
-            var decrease = uncomfortableRate * uncomfortableCount;
-            hpController.AddHp(uncomfortableIncrease * valueChangeSpeed + decrease);
+            var increase = uncomfortableRate * uncomfortableCount;
+            increaseValue = uncomfortableIncrease * valueChangeSpeed + increase;
+            hpController.AddHp(increaseValue);
         }
         else if (comfortableCount > 0)
         {
-            var increase = comfortableRate * comfortableCount;
-            hpController.DecHp(comfortableDecrease * valueChangeSpeed + increase);
+            var decrease = comfortableRate * comfortableCount;
+            decreaseValue = comfortableDecrease * valueChangeSpeed + decrease;
+            hpController.DecHp(decreaseValue);
         }
         else
         {
             hpController.DecHp(lonelyDecrease * valueChangeSpeed);
+        }
+
+        if (debug)
+        {
+            up.SetActive(increaseValue > 0);
+            down.SetActive(decreaseValue > 0);
+        }
+        else
+        {
+            up.SetActive(false);
+            down.SetActive(false);
         }
     }
 }
