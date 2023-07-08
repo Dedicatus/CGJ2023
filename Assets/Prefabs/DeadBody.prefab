@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 2402642504089894806}
   - component: {fileID: 2544473659846441045}
   - component: {fileID: 5865259709920180065}
+  - component: {fileID: 3713933942760273522}
   m_Layer: 11
   m_Name: DeadBody
   m_TagString: Untagged
@@ -227,13 +228,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da30283adfa79a7408ff13158b835c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requirement: 2
+  requirement: 1
   meshRenderers: []
   spriteRenderers:
   - {fileID: 1955071374988386370}
   curRequirement: 
   historyRequirement: 
-  requirementPool: 010000000200000003000000040000000500000006000000
+  requirementPool: 0100000002000000030000000400000005000000
+--- !u!114 &3713933942760273522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651969375025650128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a967a819d544f08ad827d342b8016d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emojiDisplayPrefab: {fileID: 7008901547518531110, guid: f3d9796e7d68941b9be063a468e486ee, type: 3}
+  emojiDisplay: {fileID: 0}
+  body: {fileID: 2828099988881898721}
+  emojiDatas: {fileID: 11400000, guid: 5cf4ed93a62714957ba2ad87d70abc8f, type: 2}
+  curPriority: -1
+  displayTime: 5
+  displayTimer: 0
 --- !u!1 &4154199005085391046
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +490,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c0e7d06c0f30c44978641aa9039dffcf, type: 3}
-  m_Color: {r: 0.3019608, g: 0.5019608, b: 0.6745098, a: 1}
+  m_Color: {r: 0.7372549, g: 0.2627451, b: 0.24705884, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -9,12 +9,11 @@ using UnityEngine.UI;
 public class RequirementController : MonoBehaviour
 {
     public Requirement requirement;
-    public List<MeshRenderer> meshRenderers = new ();
-    public List<SpriteRenderer> spriteRenderers = new ();
+    public List<MeshRenderer> meshRenderers = new();
+    public List<SpriteRenderer> spriteRenderers = new();
     public List<Requirement> curRequirement = new();
     public List<Requirement> historyRequirement = new();
     public List<Requirement> requirementPool = new();
-
 
     private void Awake()
     {
@@ -62,23 +61,7 @@ public class RequirementController : MonoBehaviour
     }
 
 
-#if UNITY_EDITOR
-    private RequirementColor _requirementColor;
-
-    private RequirementColor RequirementColor
-    {
-        get
-        {
-            if (_requirementColor == null)
-            {
-                _requirementColor = Resources.Load<RequirementColor>("RequirementColor");
-            }
-
-            return _requirementColor;
-        }
-    }
-
-    private void Update()
+    public void SetColor()
     {
         var graphic = GetComponent<Graphic>();
         if (graphic != null)
@@ -103,5 +86,24 @@ public class RequirementController : MonoBehaviour
             spriteRenderer.color = RequirementColor.GetColor(requirement);
         }
     }
-#endif
+
+    private RequirementColor _requirementColor;
+
+    private RequirementColor RequirementColor
+    {
+        get
+        {
+            if (_requirementColor == null)
+            {
+                _requirementColor = Resources.Load<RequirementColor>("RequirementColor");
+            }
+
+            return _requirementColor;
+        }
+    }
+
+    private void Update()
+    {
+        SetColor();
+    }
 }
