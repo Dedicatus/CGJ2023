@@ -14,6 +14,7 @@ public class RequirementController : MonoBehaviour
     public List<Requirement> historyRequirement = new();
     public List<Requirement> requirementPool = new();
     public GameObject hightHat;
+    public GameObject arrow;
 
     public SpriteRenderer sliderRenderer;
 

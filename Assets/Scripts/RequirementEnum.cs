@@ -28,4 +28,5 @@ public class RequirementSprite
     public Requirement requirementType;
     public Sprite iconSprite;
     public Sprite flagSprite;
+    public Color color;
 }

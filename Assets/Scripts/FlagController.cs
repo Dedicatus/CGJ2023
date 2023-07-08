@@ -91,11 +91,13 @@ public class FlagController : MonoBehaviour
         return (position - transform.position).magnitude < attractRadius;
     }
 
-    public void InitFlag(Requirement commingRequirement, Sprite sprite,float radius)
+    public void InitFlag(Requirement commingRequirement, Sprite sprite,float radius,Color sliderColor)
     {
         requirement = commingRequirement;
         flagRender.sprite = sprite;
         attractRadius = radius;
+        Debug.Log(sliderColor);
+        slider.GetComponent<SpriteRenderer>().color = sliderColor;
         rangeIndicator.transform.localScale = new Vector3(attractRadius,1, attractRadius);
     }
 }

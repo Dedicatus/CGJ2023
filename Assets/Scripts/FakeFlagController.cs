@@ -16,6 +16,7 @@ public class FakeFlagController : MonoBehaviour
     [SerializeField]
     private GameObject rangeIndicator;
     private SphereCollider overlapCollider;
+    private Color arrowColor;
 
     private Collider[] colliders;
 
@@ -33,7 +34,7 @@ public class FakeFlagController : MonoBehaviour
        DetectOverlappingObjects();
     }
 
-    public void InitFakeFlag(Requirement commingRequirement, Sprite sprite,float radius)
+    public void InitFakeFlag(Requirement commingRequirement, Sprite sprite,float radius,Color highlighColor)
     {
         overlapCollider = GetComponent<SphereCollider>();
         attractRadius = radius;
@@ -41,6 +42,7 @@ public class FakeFlagController : MonoBehaviour
         rangeIndicator.transform.localScale = new Vector3(radius, 1, radius);
         renderSprite.sprite = sprite;
         requirement = commingRequirement;
+        arrowColor = highlighColor;
     }
 
     void DetectOverlappingObjects()
@@ -54,8 +56,10 @@ public class FakeFlagController : MonoBehaviour
             {
                 if(requirementController.requirement == requirement)
                 {
+                    requirementController.arrow.GetComponentInChildren<SpriteRenderer>().color = arrowColor;
                     requirementController.hightHat.SetActive(true);
-                    
+                    requirementController.arrow.SetActive(true);
+                    requirementController.arrow.transform.forward =  gameObject.transform.position - collider.transform.position;
                 }
             }
             
@@ -73,6 +77,7 @@ public class FakeFlagController : MonoBehaviour
         if (other.gameObject.TryGetComponent(out RequirementController requirementController))
         {
             requirementController.hightHat.SetActive(false);
+            requirementController.arrow.SetActive(false);
         }
     }
 
@@ -83,6 +88,7 @@ public class FakeFlagController : MonoBehaviour
             if (collider.gameObject.TryGetComponent(out RequirementController requirementController))
             {
                 requirementController.hightHat.SetActive(false);
+                requirementController.arrow.SetActive(false);
             }
         }
     }
