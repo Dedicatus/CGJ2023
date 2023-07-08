@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -16,9 +17,13 @@ public class NpcDetector : SerializedMonoBehaviour
     public float uncomfortableRate;
     public float comfortableRate;
 
+
+    public Dictionary<int, float> speedConfigs = new();
+    private List<int> _speedConfigKeys = new();
+
     public List<GameObject> others = new();
 
-    public Dictionary<GameObject, float> othersDistance = new Dictionary<GameObject, float>();
+    public Dictionary<GameObject, float> othersDistance = new();
 
     [SerializeField] private HpController hpController;
 
@@ -28,6 +33,8 @@ public class NpcDetector : SerializedMonoBehaviour
     {
         othersDistance = new Dictionary<GameObject, float>();
         GetComponent<SphereCollider>().radius = lonelinessRadius * 0.5f;
+        _speedConfigKeys = speedConfigs.Keys.ToList();
+        _speedConfigKeys.Sort();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -65,6 +72,21 @@ public class NpcDetector : SerializedMonoBehaviour
         {
             others.Remove(other.gameObject);
         }
+    }
+
+    public void Update()
+    {
+        var time = GameManager.Instance.GameTime;
+        var speed = 1f;
+        foreach (var key in _speedConfigKeys)
+        {
+            if (time >= key)
+            {
+                speed = speedConfigs[key];
+            }
+        }
+
+        valueChangeSpeed = speed;
     }
 
     public void LateUpdate()
