@@ -16,4 +16,10 @@ public class FlagDatas : ScriptableObject
         RequirementSprite requirementSprite = flagRequirements.Find(x => x.requirementType == requirement);
         return requirementSprite.iconSprite;
     }
+
+    public Color GetColor(Requirement requirement)
+    {
+        RequirementSprite requirementSprite = flagRequirements.Find(x => x.requirementType == requirement);
+        return requirementSprite.color;
+    }
 }

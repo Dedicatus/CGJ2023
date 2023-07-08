@@ -75,7 +75,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             {
                 Destroy(myFakeFlag.gameObject);
                 GameObject newFlag = Instantiate(flagPrefab, hit.point, Quaternion.identity);
-                newFlag.GetComponent<FlagController>().InitFlag(requirement, flagDatas.GetFlagSprite(requirement),radius);
+                newFlag.GetComponent<FlagController>().InitFlag(requirement, flagDatas.GetFlagSprite(requirement),radius, flagDatas.GetColor(requirement));
                 currentcd = maxCD;
                 canSpawn = false;
                 //flagSpawned.Invoke(gameObject);
