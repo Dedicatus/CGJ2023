@@ -77,7 +77,7 @@ public class NpcDetector : SerializedMonoBehaviour
     public void Update()
     {
         var time = GameManager.Instance.GameTime;
-        var speed = 1f;
+        var speed = valueChangeSpeed;
         foreach (var key in _speedConfigKeys)
         {
             if (time >= key)
