@@ -83,7 +83,7 @@ public class AutoEvade : MonoBehaviour
                 WalkLeft?.Invoke();
             }
         }
-        if((targetPos - transform.position).magnitude <= 0.12f && isWalking)
+        if ((targetPos - transform.position).magnitude <= 0.12f && isWalking)
         {
             isWalking = false;
             EndWalk?.Invoke();
@@ -104,14 +104,7 @@ public class AutoEvade : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (targetFlag != null && collision.GetComponent<AutoEvade>().targetFlag == targetFlag)
-        {
-            surroundingObject.Add(collision.transform);
-        }
-        else if (targetFlag == null)
-        {
-            surroundingObject.Add(collision.transform);
-        }
+        surroundingObject.Add(collision.transform);
     }
 
     private void OnTriggerExit(Collider collision)
