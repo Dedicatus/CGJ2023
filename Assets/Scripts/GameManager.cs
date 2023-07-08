@@ -63,6 +63,29 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+    public HashSet<GameObject> npcHashSet;
+
+    private void Start() 
+    {
+        npcHashSet = new HashSet<GameObject>();
+        SetGameState(curGameState);
+    }
+
+    public void RegisterNPC(GameObject npc)
+    {
+        npcHashSet.Add(npc);
+    }
+
+    public void UnregisterNPC(GameObject npc)
+    {
+        npcHashSet.Remove(npc);
+
+        if (npcHashSet.Count <= 0)
+        {
+            SetGameState(GameState.RESULT);
+        }
+    }
+
     public void SetGameState(GameState state)
     {
         curGameState = state;
@@ -70,16 +93,20 @@ public class GameManager : MonoSingleton<GameManager>
         {
             case GameState.PREGAME:
                 OnPregameEnter?.Invoke();
-                Time.timeScale = 1;
+                Time.timeScale = 0f;
                 gameTime = 0f;
                 break;
             case GameState.RUNNING:
                 OnGameStart?.Invoke();
-                Time.timeScale = 1;
+                Time.timeScale = 1.0f;
                 break;
             case GameState.PAUSED:
                 OnGamePause?.Invoke();
-                Time.timeScale = 0;
+                Time.timeScale = 0f;
+                break;
+            case GameState.RESULT:
+                OnGameEnd?.Invoke();
+                Time.timeScale = 0f;
                 break;
         }
     }

@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     private void OnEnable() 
     {
         gameManager = GameManager.Instance;
-        gameManager.OnPregameEnter += OnPregameEnter;
+        //gameManager.OnPregameEnter += OnPregameEnter;
         gameManager.OnGameStart += OnGameStart;
         gameManager.OnGamePause += OnGamePause;
         gameManager.OnGameEnd += OnGameEnd;
@@ -34,9 +34,10 @@ public class UIManager : MonoBehaviour
 
     private void OnDisable() 
     {
-        gameManager.OnPregameEnter -= OnPregameEnter;
+        //gameManager.OnPregameEnter -= OnPregameEnter;
         gameManager.OnGameStart -= OnGameStart;
         gameManager.OnGamePause -= OnGamePause;
+        gameManager.OnGameEnd -= OnGameEnd;
     }
 
     private void OnPregameEnter()
