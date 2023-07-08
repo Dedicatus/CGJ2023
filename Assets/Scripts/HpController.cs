@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using Sirenix.OdinInspector;
 
 public class HpController : MonoBehaviour
 {
@@ -35,6 +36,9 @@ public class HpController : MonoBehaviour
 
     // public Transform[] walls;
 
+    [ShowInInspector, ReadOnly]
+    private Emoji.EmojiType curEmoji = Emoji.EmojiType.HAPPY;
+    public EmojiController emojiController;
     public float testValue;
 
     [ContextMenu(nameof(AddHp))]
@@ -97,8 +101,52 @@ public class HpController : MonoBehaviour
 
     private void Check()
     {
+        switch (curEmoji)
+        {
+            case Emoji.EmojiType.CRY:
+                break;
+            case Emoji.EmojiType.UPSET:
+                if (hpCur >= 50)
+                {
+                    curEmoji = Emoji.EmojiType.HAPPY;
+                    emojiController.ShowEmoji(Emoji.EmojiType.HAPPY);
+                }
+                break;
+            case Emoji.EmojiType.HAPPY:
+                if(hpCur <= 15)
+                {
+                    curEmoji = Emoji.EmojiType.UPSET;
+                    emojiController.ShowEmoji(Emoji.EmojiType.UPSET);
+                }else if (hpCur >= 85)
+                {
+                    curEmoji = Emoji.EmojiType.TIRED;
+                    emojiController.ShowEmoji(Emoji.EmojiType.TIRED);
+                }
+                break;
+            case Emoji.EmojiType.RELAX:
+                if (hpCur <= 15)
+                {
+                    curEmoji = Emoji.EmojiType.UPSET;
+                    emojiController.ShowEmoji(Emoji.EmojiType.UPSET);
+                }
+                else if (hpCur >= 85)
+                {
+                    curEmoji = Emoji.EmojiType.TIRED;
+                    emojiController.ShowEmoji(Emoji.EmojiType.TIRED);
+                }
+                break;
+            case Emoji.EmojiType.TIRED:
+                if (hpCur <= 60)
+                {
+                    curEmoji = Emoji.EmojiType.RELAX;
+                    emojiController.ShowEmoji(Emoji.EmojiType.UPSET);
+                }
+                break;
+
+        }
         if (hpCur <= 0 || hpCur >= hpLimit)
         {
+            emojiController.ShowEmoji(hpCur <= 0 ? Emoji.EmojiType.CRY : Emoji.EmojiType.OVERLOADED);
             OnDie?.Invoke();
             dieEvent?.Invoke();
             OnNpcDie?.Invoke(transform);

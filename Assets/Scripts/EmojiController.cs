@@ -45,12 +45,13 @@ public class EmojiController : MonoBehaviour
 
     public void ShowEmoji(Emoji.EmojiType emojiType)
     {
-        if (emojiDatas.GetEmojiPriority(emojiType) > curPriority)
-        {
-            emojiDisplay.SetSprite(emojiDatas.GetEmojiSprite(emojiType));
-            curPriority = emojiDatas.GetEmojiPriority(emojiType);
-            displayTimer = 0f;
-        }
+        //if (emojiDatas.GetEmojiPriority(emojiType) > curPriority)
+        //{
+        //}
+        emojiDisplay.SetSprite(emojiDatas.GetEmojiSprite(emojiType));
+        //curPriority = emojiDatas.GetEmojiPriority(emojiType);
+        emojiDisplay.gameObject.SetActive(true);
+        displayTimer = 0f;
     }
 
     private void Update()

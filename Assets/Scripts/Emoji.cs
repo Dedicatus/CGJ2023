@@ -7,8 +7,12 @@ public class Emoji
 {
     public enum EmojiType
     {
-        GOOD,
-        BAD
+        CRY = 0,
+        UPSET = 15,
+        HAPPY = 50,
+        RELAX = 60,
+        TIRED = 85,
+        OVERLOADED = 100
     }
     public EmojiType emojiType;
     public int priority;

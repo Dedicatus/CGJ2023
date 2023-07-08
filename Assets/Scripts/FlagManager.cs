@@ -36,6 +36,11 @@ public class FlagManager : MonoBehaviour
         //}
     }
 
+    private void OnDisable()
+    {
+        DragableIcon.flagSpawned -= replaceOneSlot;
+    }
+
     // Update is called once per frame
     void Update()
     {
