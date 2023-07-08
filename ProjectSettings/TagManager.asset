@@ -15,8 +15,8 @@ TagManager:
   - Npc
   - NpcDetector
   - Ground
-  - 
-  - 
+  - DistributionPoint
+  - DeadBody
   - 
   - 
   - 
