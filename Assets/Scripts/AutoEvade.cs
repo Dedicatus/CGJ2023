@@ -16,6 +16,7 @@ public class AutoEvade : MonoBehaviour
     public bool isWalking;
     private Vector3 randomDir;
     private Rigidbody mRigidbody;
+    [ShowInInspector]
     private FlagController targetFlag;
     public FlagController TargetFlag
     {

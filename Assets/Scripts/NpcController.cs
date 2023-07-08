@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,7 +7,9 @@ using UnityEngine;
 public class NpcController : MonoBehaviour
 {
     public float moveToFlagSpeed;
+    [ShowInInspector]
     private FlagController targetFlag;
+    [ShowInInspector]
     private Vector3 targetPos;
     private GameManager gameManager;
     private HpController hpController;
@@ -50,10 +53,10 @@ public class NpcController : MonoBehaviour
 
     private void OnSetFlag(FlagController flagCtrl)
     {
-        //if (flagCtrl != null && flagCtrl.isActiveAndEnabled)
-        //{
-        //    return;
-        //}
+        if (targetFlag != null && targetFlag.isActiveAndEnabled)
+        {
+            return;
+        }
         if (flagCtrl.requirement == GetComponent<RequirementController>().requirement && flagCtrl.InAttarctRange(transform.position))
         {
             GetComponentInChildren<AutoEvade>().TargetFlag = flagCtrl;
@@ -72,6 +75,10 @@ public class NpcController : MonoBehaviour
     }
     private void MoveToFormationPosition()
     {
+        if (targetPos == Vector3.zero)
+        {
+            return;
+        }
         if (targetFlag == null || !targetFlag.isActiveAndEnabled)
         {
             if (!autoEvade.isWalking && targetPos != Vector3.zero)
@@ -96,6 +103,7 @@ public class NpcController : MonoBehaviour
         }
         else if((targetPos - transform.position).magnitude <= 0.12f)
         {
+            targetPos = Vector3.zero;
             animator.SetTrigger("OnIdle");
         }
         transform.position = Vector3.MoveTowards(transform.position, targetPos, moveToFlagSpeed * Time.deltaTime);

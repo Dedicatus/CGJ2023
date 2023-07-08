@@ -48,9 +48,8 @@ public class FlagController : MonoBehaviour
                 }
                 attractedNpcTarget.Add(col.transform);
             }
-            print(attractedNpcTarget.Count + ": " + attractedNpc.Count);
             distribution.transform.localScale *= 0.9f;
-            yield return Timing.WaitForSeconds(0.2f);
+            yield return Timing.WaitForSeconds(0.02f);
         }
         var i = 0;
         foreach (var npc in attractedNpc)
