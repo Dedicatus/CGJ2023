@@ -11,10 +11,6 @@ public class InGameUI : MonoSingleton<InGameUI>
 
     [SerializeField] private TMP_Text inGameTimeText;
 
-    [SerializeField] private float realSecondsToInGameHour = 1.0f;
-
-    [SerializeField] private int startingHour = 20;
-
     private void Start() 
     {
         gameManager = GameManager.Instance;
@@ -28,16 +24,7 @@ public class InGameUI : MonoSingleton<InGameUI>
 
     private void SetScoreText()
     {
-        float inGameHours = gameManager.GameTime / realSecondsToInGameHour;
-        int inGameHoursInt = (int)inGameHours % 24;
-        int inGameMinutesInt = (int)(inGameHours * 60) % 60;
-
-        if (inGameHoursInt + startingHour >= 24)
-        {
-            inGameHoursInt -= 24;
-        }
-
-        string inGameTimeString = string.Format("{0:00}:{1:00}", inGameHoursInt + startingHour, inGameMinutesInt);
+        string inGameTimeString = string.Format("{0:00}:{1:00}", gameManager.InGameHours, gameManager.InGameMinutes);
         inGameTimeText.text = inGameTimeString;
     }
 
