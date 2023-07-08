@@ -10,6 +10,8 @@ public class NpcController : MonoBehaviour
     private Vector3 targetPos;
     private GameManager gameManager;
     private HpController hpController;
+    private Animator animator;
+    private AutoEvade autoEvade;
 
     private void OnEnable() 
     {
@@ -28,6 +30,22 @@ public class NpcController : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         gameManager.RegisterNPC(gameObject);
+        animator = GetComponent<Animator>();
+        autoEvade = GetComponentInChildren<AutoEvade>();
+        autoEvade.WalkLeft += () =>
+        {
+            animator.SetTrigger("OnWalk");
+            GetComponentInChildren<FaceToCamera>().FaceLeft();
+        };
+        autoEvade.WalkRight += () =>
+        {
+            animator.SetTrigger("OnWalk");
+            GetComponentInChildren<FaceToCamera>().FaceRight();
+        };
+        autoEvade.EndWalk += () =>
+        {
+            animator.SetTrigger("OnIdle");
+        };
     }
 
     private void OnSetFlag(FlagController flagCtrl)
@@ -56,8 +74,29 @@ public class NpcController : MonoBehaviour
     {
         if (targetFlag == null || !targetFlag.isActiveAndEnabled)
         {
-            targetPos = Vector3.zero;
+            if (!autoEvade.isWalking && targetPos != Vector3.zero)
+            {
+                targetPos = Vector3.zero;
+                animator.SetTrigger("OnIdle");
+            }
             return;
+        }
+        if ((targetPos - transform.position).magnitude > 0.12f)
+        {
+            animator.SetTrigger("OnWalk");
+
+            if (targetPos.x > transform.position.x)
+            {
+                GetComponentInChildren<FaceToCamera>().FaceRight();
+            }
+            else
+            {
+                GetComponentInChildren<FaceToCamera>().FaceLeft();
+            }
+        }
+        else if((targetPos - transform.position).magnitude <= 0.12f)
+        {
+            animator.SetTrigger("OnIdle");
         }
         transform.position = Vector3.MoveTowards(transform.position, targetPos, moveToFlagSpeed * Time.deltaTime);
     }

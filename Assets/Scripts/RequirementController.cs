@@ -86,14 +86,17 @@ public class RequirementController : MonoBehaviour
             graphic.color = RequirementColor.GetColor(requirement);
         }
 
-        foreach (var meshRenderer in meshRenderers)
-        {
-            var material = RequirementColor.GetMaterial(requirement);
-            var color = RequirementColor.GetColor(requirement);
-            color.a = 1;
-            material.color = color;
-            meshRenderer.material = material;
-        }
+        // foreach (var meshRenderer in meshRenderers)
+        // {
+        //     var material = RequirementColor.GetMaterial(requirement);
+        //     if (material)
+        //     {
+        //         var color = RequirementColor.GetColor(requirement);
+        //         color.a = 1;
+        //         material.color = color;
+        //         meshRenderer.material = material;
+        //     }
+        // }
 
         foreach (var spriteRenderer in spriteRenderers)
         {
