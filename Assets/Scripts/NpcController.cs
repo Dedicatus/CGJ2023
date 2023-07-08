@@ -36,7 +36,7 @@ public class NpcController : MonoBehaviour
         //{
         //    return;
         //}
-        if (flagCtrl.requirement == GetComponent<RequirementController>().requirement)
+        if (flagCtrl.requirement == GetComponent<RequirementController>().requirement && flagCtrl.InAttarctRange(transform.position))
         {
             GetComponentInChildren<AutoEvade>().TargetFlag = flagCtrl;
             targetFlag = flagCtrl;
