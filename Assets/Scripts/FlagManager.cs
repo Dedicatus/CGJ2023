@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RequirementController : MonoBehaviour
+public class FlagManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,13 +14,5 @@ public class RequirementController : MonoBehaviour
     void Update()
     {
         
-    }
-    public Requirement GetFirstRequirement()
-    {
-        return Requirement.none;
-    }
-    public Requirement GetSecondRequirement()
-    {
-        return Requirement.none;
     }
 }
