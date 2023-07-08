@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-[ExecuteAlways]
 public class RequirementController : MonoBehaviour
 {
     public Requirement requirement;
@@ -14,6 +13,8 @@ public class RequirementController : MonoBehaviour
     public List<Requirement> curRequirement = new();
     public List<Requirement> historyRequirement = new();
     public List<Requirement> requirementPool = new();
+
+    public SpriteRenderer sliderRenderer;
 
     private void Awake()
     {
@@ -63,10 +64,11 @@ public class RequirementController : MonoBehaviour
 
     public void SetColor()
     {
+        var color = RequirementColor.GetColor(requirement);
         var graphic = GetComponent<Graphic>();
         if (graphic != null)
         {
-            graphic.color = RequirementColor.GetColor(requirement);
+            graphic.color = color;
         }
 
         // foreach (var meshRenderer in meshRenderers)
@@ -74,7 +76,7 @@ public class RequirementController : MonoBehaviour
         //     var material = RequirementColor.GetMaterial(requirement);
         //     if (material)
         //     {
-        //         var color = RequirementColor.GetColor(requirement);
+        //         var color = color;
         //         color.a = 1;
         //         material.color = color;
         //         meshRenderer.material = material;
@@ -83,11 +85,17 @@ public class RequirementController : MonoBehaviour
 
         foreach (var spriteRenderer in spriteRenderers)
         {
-            spriteRenderer.color = RequirementColor.GetColor(requirement);
+            spriteRenderer.color = color;
+        }
+
+        if (sliderRenderer)
+        {
+            sliderRenderer.material.SetColor(SliderColor, color);
         }
     }
 
     private RequirementColor _requirementColor;
+    private static readonly int SliderColor = Shader.PropertyToID("_SliderColor");
 
     private RequirementColor RequirementColor
     {
