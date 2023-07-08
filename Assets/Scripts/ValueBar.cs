@@ -45,10 +45,8 @@ public class ValueBar : SerializedMonoBehaviour
         {
             return;
         }
-
-        transform.position = character.position + Vector3.up * offsetY;
-        transform.LookAt(transform.position + mainCamera.transform.rotation * Vector3.forward,
-            mainCamera.transform.rotation * Vector3.up);
+        transform.rotation = character.rotation;
+        transform.position = character.position + character.up * offsetY;
         transform.localScale = new Vector3(scale, scale, scale);
     }
 }
