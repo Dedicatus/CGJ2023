@@ -153,6 +153,7 @@ public class HpController : MonoBehaviour
 
         if (hpCur <= 0 || hpCur >= hpLimit)
         {
+            var deadEmoji = hpCur <= 0 ? Emoji.EmojiType.CRY : Emoji.EmojiType.OVERLOADED;
             emojiController.ShowEmoji(hpCur <= 0 ? Emoji.EmojiType.CRY : Emoji.EmojiType.OVERLOADED);
             OnDie?.Invoke();
             dieEvent?.Invoke();
@@ -163,6 +164,10 @@ public class HpController : MonoBehaviour
 
             temp.name = name + nameof(temp);
             temp.GetComponent<RequirementController>().requirement = GetComponent<RequirementController>().requirement;
+            temp.GetComponent<RequirementController>().SetColor();
+            temp.GetComponent<RequirementController>().enabled = false;
+            temp.GetComponent<EmojiController>().ShowEmoji(deadEmoji);
+            temp.destroyBodyPrefabs.Add(temp.GetComponent<EmojiController>().emojiDisplay.gameObject);
             // var all = temp.GetComponentsInChildren<MonoBehaviour>();
             // foreach (var component in all)
             // {

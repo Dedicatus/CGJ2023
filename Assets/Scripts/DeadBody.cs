@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class DeadBody : MonoBehaviour
 {
     public Wall[] walls;
+
+    public List<GameObject> destroyBodyPrefabs = new();
 
     private void Awake()
     {
@@ -57,10 +60,10 @@ public class DeadBody : MonoBehaviour
         // var maxIndex = temp.IndexOf(temp.Max());
         // var activeDirection = new[] { Vector3.up, Vector3.down, Vector3.left, Vector3.right }[maxIndex];
         // var endPosition = targetWall.position + activeDirection * 0.5f;
-        
-        
-        var allRender = GetComponentsInChildren<Renderer>();
-        var allColors = allRender.ToList().Select(t => t.material.color).ToArray();
+
+
+        var allRender = GetComponentsInChildren<SpriteRenderer>();
+        var allColors = allRender.ToList().Select(t => t.color).ToArray();
 
         while (elapsedTime < duration)
         {
@@ -71,11 +74,16 @@ public class DeadBody : MonoBehaviour
             {
                 var startColor = allColors[i];
                 var newColor = Color.Lerp(startColor, Color.clear, elapsedTime / duration);
-                allRender[i].material.color = newColor;
+                allRender[i].color = newColor;
             }
 
             elapsedTime += Time.deltaTime;
             yield return null;
+        }
+
+        for (var i = destroyBodyPrefabs.Count - 1; i >= 0; i--)
+        {
+            Destroy(destroyBodyPrefabs[i].gameObject);
         }
 
         Destroy(gameObject);

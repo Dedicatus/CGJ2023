@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da30283adfa79a7408ff13158b835c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requirement: 4
+  requirement: 2
   meshRenderers:
   - {fileID: 7285465261903153122}
   spriteRenderers:
@@ -554,7 +554,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c0e7d06c0f30c44978641aa9039dffcf, type: 3}
-  m_Color: {r: 0.22352943, g: 0.48235297, b: 0.3137255, a: 1}
+  m_Color: {r: 0.3019608, g: 0.5019608, b: 0.6745098, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
