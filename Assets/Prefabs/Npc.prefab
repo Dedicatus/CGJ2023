@@ -550,7 +550,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c0e7d06c0f30c44978641aa9039dffcf, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -650,9 +650,9 @@ MonoBehaviour:
   uncomfortableRadius: 5
   lonelinessRadius: 15
   valueChangeSpeed: 1
-  lonelyDecrease: 0.01
-  uncomfortableIncrease: 0.01
-  comfortableDecrease: 0.01
+  lonelyDecrease: 0.1
+  uncomfortableIncrease: 0.1
+  comfortableDecrease: 0.1
   uncomfortableRate: 0
   comfortableRate: 0
   others: []
