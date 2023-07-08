@@ -23,10 +23,6 @@ public class AutoEvade : MonoBehaviour
         get => targetFlag;
         set
         {
-            if (targetFlag == null && value != null)
-            {
-                surroundingObject.Clear();
-            }
             targetFlag = value;
         }
     }

@@ -16,14 +16,14 @@ public class NpcController : MonoBehaviour
     private Animator animator;
     private AutoEvade autoEvade;
 
-    private void OnEnable() 
+    private void OnEnable()
     {
         hpController = GetComponent<HpController>();
         hpController.OnDie += OnDie;
         FlagController.OnSetFlag += OnSetFlag;
     }
 
-    private void OnDisable() 
+    private void OnDisable()
     {
         FlagController.OnSetFlag -= OnSetFlag;
         hpController.OnDie -= OnDie;
@@ -34,6 +34,7 @@ public class NpcController : MonoBehaviour
         gameManager = GameManager.Instance;
         gameManager.RegisterNPC(gameObject);
         animator = GetComponent<Animator>();
+        GetComponent<Rigidbody>().sleepThreshold = 0f;
         autoEvade = GetComponentInChildren<AutoEvade>();
         autoEvade.WalkLeft += () =>
         {
@@ -101,7 +102,7 @@ public class NpcController : MonoBehaviour
                 GetComponentInChildren<FaceToCamera>().FaceLeft();
             }
         }
-        else if((targetPos - transform.position).magnitude <= 0.12f)
+        else if ((targetPos - transform.position).magnitude <= 0.12f)
         {
             targetPos = Vector3.zero;
             animator.SetTrigger("OnIdle");
