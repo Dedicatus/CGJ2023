@@ -11,8 +11,8 @@ public class NpcDetector : SerializedMonoBehaviour
     public float lonelinessRadius = 15;
     public float valueChangeSpeed = 1;
     public float lonelyDecrease = 0.1f;
-    public float uncomfortableDecrease = 0.1f;
-    public float comfortableIncrease = 0.1f;
+    public float uncomfortableIncrease = 0.1f;
+    public float comfortableDecrease = 0.1f;
     public float uncomfortableRate;
     public float comfortableRate;
 
@@ -94,12 +94,12 @@ public class NpcDetector : SerializedMonoBehaviour
         if (uncomfortableCount > 0)
         {
             var decrease = uncomfortableRate * uncomfortableCount;
-            hpController.DecHp(uncomfortableDecrease * valueChangeSpeed + decrease);
+            hpController.AddHp(uncomfortableIncrease * valueChangeSpeed + decrease);
         }
         else if (comfortableCount > 0)
         {
             var increase = comfortableRate * comfortableCount;
-            hpController.AddHp(comfortableIncrease * valueChangeSpeed + increase);
+            hpController.DecHp(comfortableDecrease * valueChangeSpeed + increase);
         }
         else
         {
