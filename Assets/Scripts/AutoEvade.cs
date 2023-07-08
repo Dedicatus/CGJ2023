@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AutoEvade : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class AutoEvade : MonoBehaviour
     public bool evadeByForce;
     private float detectRadius;
     public List<Transform> surroundingObject = new List<Transform>();
+    [ReadOnly]
+    public bool isWalking;
     private Vector3 randomDir;
     private Rigidbody mRigidbody;
     private FlagController targetFlag;
@@ -25,6 +29,9 @@ public class AutoEvade : MonoBehaviour
             targetFlag = value;
         }
     }
+    public UnityAction WalkLeft;
+    public UnityAction WalkRight;
+    public UnityAction EndWalk;
     private void Awake()
     {
         randomDir = Random.insideUnitCircle.normalized;
@@ -46,13 +53,41 @@ public class AutoEvade : MonoBehaviour
     {
         if (surroundingObject == null || surroundingObject.Count == 0 || maxMoveSpd <= 0f)
         {
+            if (isWalking)
+            {
+                isWalking = false;
+                EndWalk?.Invoke();
+            }
             return;
         }
         if (targetFlag != null && targetFlag.isActiveAndEnabled)
         {
+            if (isWalking)
+            {
+                isWalking = false;
+                EndWalk?.Invoke();
+            }
             return;
         }
         var targetPos = GetEvadePosition(surroundingObject);
+        print((targetPos - transform.position).magnitude);
+        if ((targetPos - transform.position).magnitude > 0.12f && !isWalking)
+        {
+            isWalking = true;
+            if (targetPos.x > transform.position.x)
+            {
+                WalkRight?.Invoke();
+            }
+            else
+            {
+                WalkLeft?.Invoke();
+            }
+        }
+        if((targetPos - transform.position).magnitude <= 0.12f && isWalking)
+        {
+            isWalking = false;
+            EndWalk?.Invoke();
+        }
         if (evadeByForce)
         {
             mRigidbody.AddForce((targetPos - transform.parent.position) * maxMoveSpd);

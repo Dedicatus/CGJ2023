@@ -15,4 +15,16 @@ public class FaceToCamera : MonoBehaviour
         transform.right = mainCamera.ScreenToWorldPoint(Vector3.right);
         transform.forward = -mainCamera.ScreenToWorldPoint(Vector3.up);
     }
+    public void FaceRight()
+    {
+        var scale = transform.localScale;
+        scale.x = 1f;
+        transform.localScale = scale;
+    }
+    public void FaceLeft()
+    {
+        var scale = transform.localScale;
+        scale.x = -1f;
+        transform.localScale = scale;
+    }
 }
