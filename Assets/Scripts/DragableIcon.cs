@@ -78,6 +78,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 GameObject newFlag = Instantiate(flagPrefab, hit.point, Quaternion.identity);
                 newFlag.GetComponent<FlagController>().InitFlag(requirement, flagDatas.GetFlagSprite(requirement),radius);
                 currentcd = maxCD;
+                canSpawn = false;
                 //flagSpawned.Invoke(gameObject);
             }
             else
