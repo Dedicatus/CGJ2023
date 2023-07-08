@@ -11,10 +11,18 @@ public class GameManager : MonoSingleton<GameManager>
         PREGAME,
         RUNNING,
         PAUSED,
-        GAMEEND
+        RESULT
     }
 
     [SerializeField] private GameState curGameState = GameState.PREGAME;
+
+    public GameState CurGameState
+    {
+        get
+        {
+            return curGameState;
+        }
+    }
 
     public UnityAction OnPregameEnter;
 
