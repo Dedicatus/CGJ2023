@@ -70,7 +70,6 @@ public class AutoEvade : MonoBehaviour
             return;
         }
         var targetPos = GetEvadePosition(surroundingObject);
-        print((targetPos - transform.position).magnitude);
         if ((targetPos - transform.position).magnitude > 0.12f && !isWalking)
         {
             isWalking = true;
