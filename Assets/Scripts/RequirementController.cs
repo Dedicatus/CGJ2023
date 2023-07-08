@@ -88,7 +88,7 @@ public class RequirementController : MonoBehaviour
         foreach (var meshRenderer in meshRenderers)
         {
             var material = RequirementColor.GetMaterial(requirement);
-            var color = material.color;
+            var color = RequirementColor.GetColor(requirement);
             color.a = 1;
             material.color = color;
             meshRenderer.material = material;
