@@ -238,6 +238,7 @@ MonoBehaviour:
   requirementPool: 0100000002000000030000000400000005000000
   hightHat: {fileID: 0}
   sliderRenderer: {fileID: 6577697980071934161}
+  whiteColor: 1
 --- !u!114 &3713933942760273522
 MonoBehaviour:
   m_ObjectHideFlags: 0
