@@ -14,7 +14,6 @@ public class FlagManager : MonoBehaviour
     private Dictionary<Requirement, int> usedFlagDict = new Dictionary<Requirement, int>();
     private int usedFlagNumber = 0;
     
-    
     public RectTransform flagCanvas;
        
     // Start is called before the first frame update
@@ -22,7 +21,10 @@ public class FlagManager : MonoBehaviour
     {
         foreach (Requirement requirement in Enum.GetValues(typeof(Requirement)))
         {
-            usedFlagDict[requirement] = 0;
+            if (requirement != Requirement.none)
+            {
+                usedFlagDict[requirement] = 0;
+            }
         }
         DragableIcon.flagSpawned += replaceOneSlot;
         while (currentFlagList.Count < slotNumber)
@@ -70,18 +72,21 @@ public class FlagManager : MonoBehaviour
         float totalWeight = 0; 
         foreach(var(requirement,realCount) in usedFlagDict)
         {
-            int expectationCount = usedFlagNumber/Enum.GetValues(typeof(Requirement)).Length;
-            if (expectationCount - realCount > 2)
+            if (requirement != Requirement.none)
             {
-                Debug.Log("Maybe!");
+                int expectationCount = usedFlagNumber/Enum.GetValues(typeof(Requirement)).Length;
+                if (expectationCount - realCount > 2)
+                {
+                    Debug.Log("Maybe!");
+                }
+                float weight = 3/(3.001f-(expectationCount - realCount));
+                if (weight < 0)
+                {
+                    weight = 10000;
+                }
+                totalWeight += weight;
+                weightList.Add(requirement, totalWeight);
             }
-            float weight = 3/(3.001f-(expectationCount - realCount));
-            if (weight < 0)
-            {
-                weight = 10000;
-            }
-            totalWeight += weight;
-            weightList.Add(requirement, totalWeight);
         }
         float randomValue = UnityEngine.Random.Range(0, totalWeight);
         float lowerValue = 0;

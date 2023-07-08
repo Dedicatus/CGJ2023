@@ -20,6 +20,8 @@ public class FlagController : MonoBehaviour
     private float currentTime = 9999;
     private List<GameObject> attractedNpc;
     private List<Transform> attractedNpcTarget;
+    [SerializeField]
+    private SpriteRenderer flagRender;
 
     private void OnEnable()
     {
@@ -84,8 +86,9 @@ public class FlagController : MonoBehaviour
         return (position - transform.position).magnitude < attractRadius;
     }
 
-    public void InitFlag(Requirement commingRequirement)
+    public void InitFlag(Requirement commingRequirement, Sprite sprite)
     {
         requirement = commingRequirement;
+        flagRender.sprite = sprite;
     }
 }

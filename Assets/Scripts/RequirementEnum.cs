@@ -1,3 +1,6 @@
+using System;
+using UnityEngine;
+
 public enum Requirement
 {
     none = 0,
@@ -16,8 +19,12 @@ public enum Requirement
     Blue,
     Yellow,
     Green,
-    Gray,
-    Dark,
     Purple,
-    Pink,
+    Orange,
+}
+[Serializable]
+public class RequirementSprite
+{
+    public Requirement requirementType;
+    public Sprite sprite;
 }

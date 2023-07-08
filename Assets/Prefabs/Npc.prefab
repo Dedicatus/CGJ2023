@@ -140,9 +140,9 @@ GameObject:
   - component: {fileID: 8345723221047176318}
   - component: {fileID: -5823503076173077644}
   - component: {fileID: 8764239970652685836}
+  - component: {fileID: 8804443006062661664}
   - component: {fileID: 6109865476418925039}
   - component: {fileID: 8660226724507689833}
-  - component: {fileID: 8804443006062661664}
   - component: {fileID: 7034499356985252795}
   m_Layer: 7
   m_Name: Npc
@@ -191,6 +191,7 @@ MonoBehaviour:
   dieEvent:
     m_PersistentCalls:
       m_Calls: []
+  emojiController: {fileID: 8804443006062661664}
   testValue: 0
 --- !u!114 &-5823503076173077644
 MonoBehaviour:
@@ -217,12 +218,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da30283adfa79a7408ff13158b835c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requirement: 3
+  requirement: 1
   meshRenderers:
   - {fileID: 7285465261903153122}
   curRequirement: 
   historyRequirement: 
-  requirementPool: 0100000002000000030000000400000005000000060000000700000008000000
+  requirementPool: 010000000200000003000000040000000500000006000000
+--- !u!114 &8804443006062661664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651969375025650128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a967a819d544f08ad827d342b8016d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emojiDisplayPrefab: {fileID: 7008901547518531110, guid: f3d9796e7d68941b9be063a468e486ee, type: 3}
+  emojiDisplay: {fileID: 0}
+  emojiDatas: {fileID: 11400000, guid: 5cf4ed93a62714957ba2ad87d70abc8f, type: 2}
+  curPriority: -1
+  displayTime: 5
+  displayTimer: 0
 --- !u!136 &6109865476418925039
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -253,24 +272,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &8804443006062661664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3651969375025650128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39a967a819d544f08ad827d342b8016d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emojiDisplayPrefab: {fileID: 7008901547518531110, guid: f3d9796e7d68941b9be063a468e486ee, type: 3}
-  emojiDisplay: {fileID: 0}
-  emojiDatas: {fileID: 11400000, guid: 5cf4ed93a62714957ba2ad87d70abc8f, type: 2}
-  curPriority: -1
-  displayTime: 5
-  displayTimer: 0
 --- !u!95 &7034499356985252795
 Animator:
   serializedVersion: 5
@@ -353,7 +354,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eb9c147c81381044b87fb54cccc6bd31, type: 2}
+  - {fileID: 2100000, guid: 9c0d59da4e5ea28488469d9d31429e4c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
