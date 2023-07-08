@@ -7,6 +7,7 @@ public class NpcController : MonoBehaviour
 {
     public float moveToFlagSpeed;
     private FlagController targetFlag;
+    private Vector3 targetPos;
     void Start()
     {
         FlagController.OnSetFlag += OnSetFlag;
@@ -32,19 +33,19 @@ public class NpcController : MonoBehaviour
 
     void Update()
     {
-        MoveToFlagFormationRange();
+        MoveToFormationPosition();
     }
-    private void MoveToFlagFormationRange()
+    private void MoveToFormationPosition()
     {
-        if (targetFlag == null)
+        if (targetFlag == null || !targetFlag.isActiveAndEnabled)
         {
+            targetPos = Vector3.zero;
             return;
         }
-        var inFormationRange = targetFlag.InFormationRange(transform.position);
-        var inAttarctRange = targetFlag.InAttarctRange(transform.position);
-        if ( targetFlag.isActiveAndEnabled && inAttarctRange)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetFlag.transform.position, moveToFlagSpeed * Time.deltaTime);
-        }
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, moveToFlagSpeed * Time.deltaTime);
+    }
+    public void SetTargetPosition(Vector3 pos)
+    {
+        targetPos = Vector3.Scale(pos, new Vector3(1f, 0f, 1f));
     }
 }
