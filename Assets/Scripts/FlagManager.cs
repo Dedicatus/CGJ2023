@@ -49,11 +49,11 @@ public class FlagManager : MonoBehaviour
         
     }
 
-    private void addANewSlot(float cd = 0)
+    private void addANewSlot(bool needCD = false)
     {
         Requirement newRequirement = getNewRequirement();
         GameObject newFlagIcon = GameObject.Instantiate(flagIconPrefab);
-        newFlagIcon.GetComponent<DragableIcon>().initFlagIcon(newRequirement,cd);
+        newFlagIcon.GetComponent<DragableIcon>().initFlagIcon(newRequirement,needCD);
         newFlagIcon.transform.SetParent(flagCanvas, false);
         currentFlagList.Add(newFlagIcon);
     }
@@ -62,7 +62,7 @@ public class FlagManager : MonoBehaviour
     {
         currentFlagList.Remove(removedSlot);
         Destroy(removedSlot);
-        addANewSlot(10);
+        addANewSlot(true) ;
     }
 
     private Requirement getNewRequirement()

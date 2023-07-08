@@ -28,7 +28,9 @@ public class HpController : MonoBehaviour
     public float maxLimit = 100;
     public float hpLimit = 100;
     public float hpCur = 50;
-
+    public float randomMin = 30;
+    public float randomMax = 70;
+    public Transform body;
     public UnityAction OnDie;
     public static UnityAction<Transform> OnNpcDie;
 
@@ -36,8 +38,7 @@ public class HpController : MonoBehaviour
 
     // public Transform[] walls;
 
-    [ShowInInspector, ReadOnly]
-    private Emoji.EmojiType curEmoji = Emoji.EmojiType.HAPPY;
+    [ShowInInspector, ReadOnly] private Emoji.EmojiType curEmoji = Emoji.EmojiType.HAPPY;
     public EmojiController emojiController;
     public float testValue;
 
@@ -69,10 +70,11 @@ public class HpController : MonoBehaviour
 
     private void Awake()
     {
+        hpCur = Random.Range(randomMin, randomMax);
         if (valueBar == null)
         {
             valueBar = Instantiate(valueBarPrefab, InGameCanvas.transform);
-            valueBar.character = transform;
+            valueBar.character = body;
         }
     }
 
@@ -111,17 +113,20 @@ public class HpController : MonoBehaviour
                     curEmoji = Emoji.EmojiType.HAPPY;
                     emojiController.ShowEmoji(Emoji.EmojiType.HAPPY);
                 }
+
                 break;
             case Emoji.EmojiType.HAPPY:
-                if(hpCur <= 15)
+                if (hpCur <= 15)
                 {
                     curEmoji = Emoji.EmojiType.UPSET;
                     emojiController.ShowEmoji(Emoji.EmojiType.UPSET);
-                }else if (hpCur >= 85)
+                }
+                else if (hpCur >= 85)
                 {
                     curEmoji = Emoji.EmojiType.TIRED;
                     emojiController.ShowEmoji(Emoji.EmojiType.TIRED);
                 }
+
                 break;
             case Emoji.EmojiType.RELAX:
                 if (hpCur <= 15)
@@ -134,6 +139,7 @@ public class HpController : MonoBehaviour
                     curEmoji = Emoji.EmojiType.TIRED;
                     emojiController.ShowEmoji(Emoji.EmojiType.TIRED);
                 }
+
                 break;
             case Emoji.EmojiType.TIRED:
                 if (hpCur <= 60)
@@ -141,9 +147,10 @@ public class HpController : MonoBehaviour
                     curEmoji = Emoji.EmojiType.RELAX;
                     emojiController.ShowEmoji(Emoji.EmojiType.UPSET);
                 }
-                break;
 
+                break;
         }
+
         if (hpCur <= 0 || hpCur >= hpLimit)
         {
             emojiController.ShowEmoji(hpCur <= 0 ? Emoji.EmojiType.CRY : Emoji.EmojiType.OVERLOADED);

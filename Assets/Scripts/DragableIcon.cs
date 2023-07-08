@@ -13,8 +13,8 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [ShowInInspector,ReadOnly]
     private Requirement requirement;
     [ShowInInspector,ReadOnly]
-    private float currentcd = 10;
-    private float maxCD = 10;
+    private float currentcd = 0;
+    public float maxCD = 10;
     private bool canSpawn = true;
     private GameObject myFakeFlag;
     public static UnityAction<GameObject> flagSpawned;
@@ -23,13 +23,12 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField]
     private FlagDatas flagDatas;
 
-    public void initFlagIcon(Requirement commmingRequirement, float newcd = 0)
+    public void initFlagIcon(Requirement commmingRequirement, bool needCD = false)
     {
         requirement = commmingRequirement;
         flagImage.sprite = flagDatas.GetFlagSprite(requirement);
-        maxCD = newcd;
-        currentcd = newcd;
-        canSpawn = newcd > 0 ? false : true;
+        currentcd = maxCD;
+        canSpawn = !needCD;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
