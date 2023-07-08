@@ -27,8 +27,6 @@ public class EmojiDisplay : SerializedMonoBehaviour
 
     public Transform character;
 
-    public int curPriority = -1;
-
     public void Update()
     {
         transform.position = character.position;
@@ -48,8 +46,8 @@ public class EmojiDisplay : SerializedMonoBehaviour
         transform.localScale = new Vector3(scale, scale, scale);
     }
 
-    public void ShowEmoji(Emoji.EmojiType emojiType)
+    public void SetSprite(Sprite sprite)
     {
-        //Image.sprite = Emoji.GetEmojiSprite(emojiType);
+        Image.sprite = sprite;
     }
 }

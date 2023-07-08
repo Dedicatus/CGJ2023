@@ -10,7 +10,7 @@ public class HpController : MonoBehaviour
         get
         {
             if (_inGameCanvas == null)
-            {
+            {   
                 _inGameCanvas = GameObject.Find("UIManager/InGameUI_WorldSpace/InGameCanvas").GetComponent<Canvas>();
                 _inGameCanvas = _inGameCanvas ? _inGameCanvas : FindObjectOfType<Canvas>();
             }
@@ -94,13 +94,17 @@ public class HpController : MonoBehaviour
 
     private void Check()
     {
-        if (!(hpCur <= 0))
+        if (hpCur <= 0 || hpCur >= hpLimit)
         {
-            return;
+            OnDie?.Invoke();
+            dieEvent?.Invoke();
+            OnNpcDie?.Invoke(transform);
+            gameObject.SetActive(false);
+            valueBar.gameObject.SetActive(false);
+            GetComponent<EmojiController>().emojiDisplay.gameObject.SetActive(false);
+            // Destroy(valueBar);
+            // Destroy(gameObject);
         }
 
-        OnDie?.Invoke();
-        dieEvent?.Invoke();
-        OnNpcDie?.Invoke(transform);
     }
 }
