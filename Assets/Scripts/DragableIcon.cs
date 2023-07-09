@@ -15,6 +15,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [ShowInInspector,ReadOnly]
     private float currentcd = 0;
     public float maxCD = 10;
+    public AnimationCurve maxCdModWithTime;
     public float radius = 50;
     private bool canSpawn = true;
     private GameObject myFakeFlag;
@@ -37,7 +38,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         flagImage.sprite = flagDatas.GetIconSprite(requirement);
         if (needCD)
         {
-            currentcd = maxCD;
+            currentcd = maxCdModWithTime.Evaluate(GameManager.Instance.GameTime);
         }
         canSpawn = !needCD;
     }
@@ -88,7 +89,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 Destroy(myFakeFlag.gameObject);
                 GameObject newFlag = Instantiate(flagPrefab, hit.point, Quaternion.identity);
                 newFlag.GetComponent<FlagController>().InitFlag(requirement, flagDatas.GetFlagSprite(requirement),radius, flagDatas.GetColor(requirement));
-                currentcd = maxCD;
+                currentcd = maxCdModWithTime.Evaluate(GameManager.Instance.GameTime);
                 canSpawn = false;
                 audioManager.PlaySound("UIClick");
                 //flagSpawned.Invoke(gameObject);
@@ -106,7 +107,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if (currentcd > 0)
         {
             currentcd -= Time.deltaTime;
-            coverImage.fillAmount = currentcd / maxCD;
+            coverImage.fillAmount = currentcd / maxCdModWithTime.Evaluate(GameManager.Instance.GameTime);
             if (currentcd <= 0)
             {
                 canSpawn = true;
