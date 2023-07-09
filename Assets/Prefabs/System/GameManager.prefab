@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curGameState: 0
-  realSecondsToInGameHour: 90
+  realSecondsToInGameHour: 60
   startingHour: 20
   inGameHours: 0
   inGameMinutes: 0
