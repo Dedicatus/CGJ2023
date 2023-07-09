@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4793898552615893212, guid: 7281d1ea226e4a342850eda54db1c48f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 34.3
+      value: 38.5
       objectReference: {fileID: 0}
     - target: {fileID: 4793898552615893212, guid: 7281d1ea226e4a342850eda54db1c48f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2026,10 +2026,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3201531149722780558, guid: 42eb80de7ce464b609c04482edc927ed, type: 3}
-      propertyPath: curGameState
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3201531149832125748, guid: 42eb80de7ce464b609c04482edc927ed, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2087,10 +2083,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1831574876227280722, guid: 035f226796260410e9beb970609cc381, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3093546420232718068, guid: 035f226796260410e9beb970609cc381, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2142,10 +2134,6 @@ PrefabInstance:
     - target: {fileID: 9099939958083659054, guid: 035f226796260410e9beb970609cc381, type: 3}
       propertyPath: m_Name
       value: UIManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 9099939958083659054, guid: 035f226796260410e9beb970609cc381, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 035f226796260410e9beb970609cc381, type: 3}

@@ -125,6 +125,11 @@ public class GameManager : MonoSingleton<GameManager>
             gameTime += Time.deltaTime;
             CalculateScoreText();
         }
+
+        if (curGameState == GameState.PREGAME && Input.GetKeyDown(KeyCode.Escape))
+        {
+            ExitGame();
+        }
     }
 
     private void CalculateScoreText()
@@ -147,5 +152,10 @@ public class GameManager : MonoSingleton<GameManager>
 
         // Load the scene with the same index, effectively reloading it
         SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
