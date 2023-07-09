@@ -7,6 +7,8 @@ using DG.Tweening;
 public class InGameUI : MonoSingleton<InGameUI>
 {
     private GameManager gameManager;
+
+    private AudioManager audioManager;
     
     public GameObject myCanvas;
 
@@ -21,6 +23,7 @@ public class InGameUI : MonoSingleton<InGameUI>
     private void Start() 
     {
         gameManager = GameManager.Instance;
+        audioManager = AudioManager.Instance;
         myCanvas = transform.GetChild(0).gameObject;
         SwitchButton(false);
         lastInGameHours = gameManager.InGameHours;
@@ -41,6 +44,7 @@ public class InGameUI : MonoSingleton<InGameUI>
     {
         if (lastInGameHours != gameManager.InGameHours)
         {
+            audioManager.PlaySound("Clock");
             //Shake
             inGameTimeText.rectTransform.DOPunchRotation(Vector3.forward * 20f, 0.5f, 10, 1f);
             lastInGameHours = gameManager.InGameHours;

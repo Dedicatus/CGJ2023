@@ -70,6 +70,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         npcHashSet = new HashSet<GameObject>();
         SetGameState(curGameState);
+        CalculateScoreText();
     }
 
     public void RegisterNPC(GameObject npc)

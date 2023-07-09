@@ -9,9 +9,7 @@ public class UIAudio : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
 
     private void Start() 
     {
-        Debug.Log("UIAudio Start");
         audioManager = AudioManager.Instance;
-        Debug.Log(audioManager);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
