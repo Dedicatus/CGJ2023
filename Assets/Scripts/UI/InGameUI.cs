@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class InGameUI : MonoSingleton<InGameUI>
 {
@@ -41,6 +42,7 @@ public class InGameUI : MonoSingleton<InGameUI>
         if (lastInGameHours != gameManager.InGameHours)
         {
             //Shake
+            inGameTimeText.rectTransform.DOPunchRotation(Vector3.forward * 20f, 0.5f, 10, 1f);
             lastInGameHours = gameManager.InGameHours;
         }
         SetScoreText();
