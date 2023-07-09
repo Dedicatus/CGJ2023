@@ -1070,7 +1070,7 @@ MonoBehaviour:
       Data: 300
     - Name: $v
       Entry: 4
-      Data: 12
+      Data: 18
     - Name: 
       Entry: 8
       Data: 
@@ -1082,7 +1082,7 @@ MonoBehaviour:
       Data: 240
     - Name: $v
       Entry: 4
-      Data: 7
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -1094,7 +1094,7 @@ MonoBehaviour:
       Data: 360
     - Name: $v
       Entry: 4
-      Data: 18
+      Data: 40
     - Name: 
       Entry: 8
       Data: 
@@ -1106,7 +1106,7 @@ MonoBehaviour:
       Data: 120
     - Name: $v
       Entry: 4
-      Data: 1.8
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -1118,7 +1118,7 @@ MonoBehaviour:
       Data: 180
     - Name: $v
       Entry: 4
-      Data: 3.5
+      Data: 6
     - Name: 
       Entry: 8
       Data: 
@@ -1130,7 +1130,7 @@ MonoBehaviour:
       Data: 60
     - Name: $v
       Entry: 4
-      Data: 1
+      Data: 1.5
     - Name: 
       Entry: 8
       Data: 
