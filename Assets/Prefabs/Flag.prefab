@@ -180,7 +180,7 @@ MonoBehaviour:
   requirement: 0
   formationRadius: 5
   attractRadius: 50
-  keepTime: 9999
+  keepTime: 10
   distribution: {fileID: 7141015187946711843}
   distributionLayer:
     serializedVersion: 2

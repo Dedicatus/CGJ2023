@@ -15,19 +15,19 @@ MonoBehaviour:
   emojiDataList:
   - emojiType: 0
     priority: 1
-    sprite: {fileID: 21300000, guid: fec87930501cd48ffafb1ff0d31cdfbd, type: 3}
+    sprite: {fileID: 21300000, guid: acde42514da8b4327b04b27ec62fc073, type: 3}
   - emojiType: 15
     priority: 2
-    sprite: {fileID: 21300000, guid: fec87930501cd48ffafb1ff0d31cdfbd, type: 3}
+    sprite: {fileID: 21300000, guid: c16fad1cdd9ff4e22ad2a6d2621ca726, type: 3}
   - emojiType: 50
     priority: 0
-    sprite: {fileID: 21300000, guid: a55dd2d310ca4490c92434673daa7f95, type: 3}
+    sprite: {fileID: 21300000, guid: 77b30e24100284f80800cb6699d3eeb5, type: 3}
   - emojiType: 60
     priority: 0
-    sprite: {fileID: 21300000, guid: a55dd2d310ca4490c92434673daa7f95, type: 3}
+    sprite: {fileID: 21300000, guid: 50111bbcd9d42467597313aa856370bc, type: 3}
   - emojiType: 85
     priority: 0
-    sprite: {fileID: 21300000, guid: fec87930501cd48ffafb1ff0d31cdfbd, type: 3}
+    sprite: {fileID: 21300000, guid: 3c041cd317d6c41ec8bd910aadbdc4b2, type: 3}
   - emojiType: 100
     priority: 0
-    sprite: {fileID: 21300000, guid: fec87930501cd48ffafb1ff0d31cdfbd, type: 3}
+    sprite: {fileID: 21300000, guid: f7ba1f91c38aa4df9bfad6921762353a, type: 3}

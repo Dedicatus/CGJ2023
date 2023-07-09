@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &44243805129996830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2347693921111365043, guid: 6269c3e13a5dc3441bf239bc0c58d777, type: 3}
+  m_PrefabInstance: {fileID: 7458807161105364933}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3660505969645897033}
+  m_Layer: 0
+  m_Name: 'Hat (Missing Prefab with guid: 6269c3e13a5dc3441bf239bc0c58d777)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3660505969645897033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 6147337973875864204, guid: 6269c3e13a5dc3441bf239bc0c58d777, type: 3}
+  m_PrefabInstance: {fileID: 7458807161105364933}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44243805129996830}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4431379225808771627}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &998413584102081342
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da30283adfa79a7408ff13158b835c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requirement: 6
+  requirement: 5
   meshRenderers:
   - {fileID: 7285465261903153122}
   spriteRenderers:
@@ -358,7 +389,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e7e7ede7b5bf3ea42914e981e32056e1, type: 2}
+  - {fileID: 2100000, guid: 0f924122bf95d194ca35cb9fb0668485, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -550,7 +581,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c0e7d06c0f30c44978641aa9039dffcf, type: 3}
-  m_Color: {r: 0.9960785, g: 0.6156863, b: 0.26666668, a: 1}
+  m_Color: {r: 0.3019608, g: 0.19607845, b: 0.6313726, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -647,12 +678,12 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  uncomfortableRadius: 5
-  lonelinessRadius: 15
+  uncomfortableRadius: 3
+  lonelinessRadius: 10
   valueChangeSpeed: 1
-  lonelyDecrease: 0.1
-  uncomfortableIncrease: 0.1
-  comfortableDecrease: 0.1
+  lonelyDecrease: 0.005
+  uncomfortableIncrease: 0.005
+  comfortableDecrease: 0.005
   uncomfortableRate: 0
   comfortableRate: 0
   others: []
@@ -803,8 +834,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6269c3e13a5dc3441bf239bc0c58d777, type: 3}
---- !u!4 &3660505969645897033 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6147337973875864204, guid: 6269c3e13a5dc3441bf239bc0c58d777, type: 3}
-  m_PrefabInstance: {fileID: 7458807161105364933}
-  m_PrefabAsset: {fileID: 0}
