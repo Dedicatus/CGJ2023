@@ -76,6 +76,7 @@ public class UIManager : MonoBehaviour
                 pauseUI.myCanvas.SetActive(false);
                 resultUI.myCanvas.SetActive(false);
                 inGameUI.myCanvas.SetActive(true);
+                inGameUI.SwitchButton(false);
                 inGameUIWorldSpace.myCanvas.SetActive(true);
                 break;
             case GameManager.GameState.PAUSED:
@@ -83,6 +84,7 @@ public class UIManager : MonoBehaviour
                 pauseUI.myCanvas.SetActive(true);
                 resultUI.myCanvas.SetActive(false);
                 inGameUI.myCanvas.SetActive(true);
+                inGameUI.SwitchButton(true);
                 inGameUIWorldSpace.myCanvas.SetActive(true);
                 break;
             case GameManager.GameState.RESULT:

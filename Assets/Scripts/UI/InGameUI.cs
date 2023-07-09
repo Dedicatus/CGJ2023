@@ -11,10 +11,18 @@ public class InGameUI : MonoSingleton<InGameUI>
 
     [SerializeField] private TMP_Text inGameTimeText;
 
+    [SerializeField] private GameObject pauseButton;
+
+    [SerializeField] private GameObject returnButton;
+
+    private int lastInGameHours = 0;
+
     private void Start() 
     {
         gameManager = GameManager.Instance;
         myCanvas = transform.GetChild(0).gameObject;
+        SwitchButton(false);
+        lastInGameHours = gameManager.InGameHours;
     }
 
     public void OnPauseButtonClicked()
@@ -30,6 +38,22 @@ public class InGameUI : MonoSingleton<InGameUI>
 
     private void Update() 
     {
+        if (lastInGameHours != gameManager.InGameHours)
+        {
+            //Shake
+            lastInGameHours = gameManager.InGameHours;
+        }
         SetScoreText();
+    }
+
+    public void OnReturnButtonClicked()
+    {
+        gameManager.ReloadCurrentScene();
+    }
+
+    public void SwitchButton(bool isPaused)
+    {
+        pauseButton.SetActive(!isPaused);
+        returnButton.SetActive(isPaused);
     }
 }
