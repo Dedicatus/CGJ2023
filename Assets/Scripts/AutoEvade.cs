@@ -9,6 +9,7 @@ public class AutoEvade : MonoBehaviour
     public float maxMoveSpd = 1f;
     public float jitterTolerance = 0.1f;
     public float evadeForceMod = 0.9f;
+    public AnimationCurve evadeForceModByTime;
     public bool evadeByForce;
     private float detectRadius;
     public List<Transform> surroundingObject = new List<Transform>();
@@ -124,7 +125,8 @@ public class AutoEvade : MonoBehaviour
             //var hwRatio = Mathf.Abs(Vector3.Dot((trans.position - transform.position).normalized, Vector3.right));
             //hwRatio *= 0.8f;
             //hwRatio += 0.2f;
-            deltaAvoidBias *= evadeForceMod / Mathf.Pow(Mathf.Max(dist, 0.01f), 2f);
+            var force = evadeForceModByTime.Evaluate(GameManager.Instance.GameTime);
+            deltaAvoidBias *= force / Mathf.Pow(Mathf.Max(dist, 0.01f), 2f);
             deltaAvoidBias *= Mathf.Lerp(1f, 0f, dist / (detectRadius * 2f));
             //deltaAvoidBias *= Mathf.Lerp(1f, 2.5f, hwRatio);//avoid offset bigger on horizontal than virtical//use for hp slider
             avoidCrowdedPos += deltaAvoidBias;
