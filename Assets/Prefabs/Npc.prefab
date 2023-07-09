@@ -567,6 +567,48 @@ MonoBehaviour:
   maxMoveSpd: 4
   jitterTolerance: 0.1
   evadeForceMod: 6
+  evadeForceModByTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 12
+      inSlope: -1.6
+      outSlope: -1.6
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5
+      value: 4
+      inSlope: 0.016756335
+      outSlope: 0.016756335
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.06662053
+    - serializedVersion: 3
+      time: 50
+      value: 7.538546
+      inSlope: 0.01065356
+      outSlope: 0.01065356
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.09639156
+    - serializedVersion: 3
+      time: 800
+      value: 12
+      inSlope: 0.005948605
+      outSlope: 0.005948605
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   evadeByForce: 0
   surroundingObject: []
   isWalking: 0
@@ -628,7 +670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5724723758287614978}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.35, z: 0}
+  m_LocalPosition: {x: 0, y: 1.35, z: -0.05}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -675,7 +717,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: c0e7d06c0f30c44978641aa9039dffcf, type: 3}
   m_Color: {r: 0.7372549, g: 0.2627451, b: 0.24705884, a: 1}
   m_FlipX: 0
@@ -1208,7 +1250,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 72390b2009b834c948567362bc74d8ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
