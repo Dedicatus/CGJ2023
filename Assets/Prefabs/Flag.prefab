@@ -267,6 +267,30 @@ MonoBehaviour:
   formationRadius: 5
   attractRadius: 17
   keepTime: 10
+  dynamicFormationRange:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 2
+      inSlope: 0.027817607
+      outSlope: 0.027817607
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.22001919
+    - serializedVersion: 3
+      time: 20
+      value: 6
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   distribution: {fileID: 7141015187946711843}
   distributionLayer:
     serializedVersion: 2
