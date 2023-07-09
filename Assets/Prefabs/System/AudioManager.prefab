@@ -44,4 +44,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae6e3cd6e8a341d8b35dcfbc90e8295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - soundName: UIClick
+    clip: {fileID: 8300000, guid: af480c160d73a464eb40d2f376cd0e01, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - soundName: UIHover
+    clip: {fileID: 8300000, guid: 991d9f7bbc89a41fb85a974239d1d039, type: 3}
+    volume: 0.5
+    pitch: 0.45
+    loop: 0
+    source: {fileID: 0}
+  - soundName: BGM
+    clip: {fileID: 8300000, guid: 35d77a87185ef402da1c039d0f7697bf, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

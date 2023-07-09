@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 2954007067335430083}
   - component: {fileID: 198082645803428888}
   - component: {fileID: 2086216940272834267}
+  - component: {fileID: 1129339936187815486}
   m_Layer: 5
   m_Name: Btn_StartGame
   m_TagString: Untagged
@@ -371,6 +372,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1129339936187815486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4299015313639511612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff8d1fc727efa44daa44bfce10d6b62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5513989002071286972
 GameObject:
   m_ObjectHideFlags: 0
