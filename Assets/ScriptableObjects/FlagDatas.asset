@@ -28,7 +28,7 @@ MonoBehaviour:
   - requirementType: 3
     iconSprite: {fileID: 21300000, guid: 22181205dd325499cb4229bb99cd2169, type: 3}
     flagSprite: {fileID: 21300000, guid: 44c2d4c9a9196472a82aee83be2a8d1b, type: 3}
-    color: {r: 0.82745105, g: 0.6745098, b: 0.56078434, a: 1}
+    color: {r: 0.9196382, g: 0.9245283, b: 0.6236205, a: 1}
   - requirementType: 4
     iconSprite: {fileID: 21300000, guid: 83924f28073d84b85af8e1822926ede8, type: 3}
     flagSprite: {fileID: 21300000, guid: 70a9597fc01144e84974a710ee60835b, type: 3}
