@@ -24,6 +24,13 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField]
     private FlagDatas flagDatas;
 
+    private AudioManager audioManager;
+
+    private void Start() 
+    {
+        audioManager = AudioManager.Instance;
+    }
+
     public void initFlagIcon(Requirement commmingRequirement, bool needCD = false)
     {
         requirement = commmingRequirement;
@@ -42,6 +49,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             // Store the initial position of the object and the mouse
             myFakeFlag = Instantiate(fakeflagPrefab);
             myFakeFlag.GetComponent<FakeFlagController>().InitFakeFlag(requirement, flagDatas.GetFlagSprite(requirement), radius, flagDatas.GetColor(requirement));
+            audioManager.PlaySound("FlagDrag");
         }
     }
 
@@ -82,6 +90,7 @@ public class DragableIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 newFlag.GetComponent<FlagController>().InitFlag(requirement, flagDatas.GetFlagSprite(requirement),radius, flagDatas.GetColor(requirement));
                 currentcd = maxCD;
                 canSpawn = false;
+                audioManager.PlaySound("UIClick");
                 //flagSpawned.Invoke(gameObject);
             }
             else

@@ -57,6 +57,12 @@ MonoBehaviour:
     pitch: 0.45
     loop: 0
     source: {fileID: 0}
+  - soundName: FlagDrag
+    clip: {fileID: 8300000, guid: 991d9f7bbc89a41fb85a974239d1d039, type: 3}
+    volume: 0.22
+    pitch: 0.45
+    loop: 0
+    source: {fileID: 0}
   - soundName: BGM
     clip: {fileID: 8300000, guid: 35d77a87185ef402da1c039d0f7697bf, type: 3}
     volume: 0.7
