@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using MEC;
 using UnityEngine.Events;
+using System.Linq;
 
 public class FlagController : MonoBehaviour
 {
     public static UnityAction<FlagController> OnSetFlag;
     public Requirement requirement;
+    //no longer use
     public float formationRadius;
     public float attractRadius;
     public float keepTime = 9999;
+    public AnimationCurve dynamicFormationRange;
     [SerializeField]
     private GameObject distribution;
     [SerializeField]
@@ -52,6 +55,7 @@ public class FlagController : MonoBehaviour
             yield return Timing.WaitForSeconds(0.02f);
         }
         var i = 0;
+        attractedNpcTarget.OrderBy(t => (transform.position - t.position).sqrMagnitude);
         foreach (var npc in attractedNpc)
         {
             npc.GetComponent<NpcController>().SetTargetPosition(attractedNpcTarget[i].position);
@@ -69,6 +73,7 @@ public class FlagController : MonoBehaviour
                 attractedNpc.Add(col.gameObject);
             }
         }
+        formationRadius = dynamicFormationRange.Evaluate(attractedNpc.Count);
         Timing.RunCoroutine(GetFormationPosition());
     }
 
