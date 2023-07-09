@@ -28,4 +28,9 @@ public class AudioManager : MonoSingleton<AudioManager>
         }
         s.source.Play();
     }
+
+    private void Start() 
+    {
+        PlaySound("BGM");
+    }
 }
