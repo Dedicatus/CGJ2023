@@ -268,7 +268,7 @@ MonoBehaviour:
   hightHat: {fileID: 4457826194779456437}
   arrow: {fileID: 360506112886281958}
   sliderRenderer: {fileID: 948014823355667259}
-  whiteColor: 1
+  whiteColor: 0
 --- !u!114 &8804443006062661664
 MonoBehaviour:
   m_ObjectHideFlags: 0
